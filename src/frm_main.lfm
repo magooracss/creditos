@@ -1,0 +1,105 @@
+object frmMain: TfrmMain
+  Left = 280
+  Height = 472
+  Top = 224
+  Width = 897
+  ClientHeight = 452
+  ClientWidth = 897
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  ShowHint = True
+  LCLVersion = '1.2.6.0'
+  object st: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 429
+    Width = 897
+    Panels = <    
+      item
+        Alignment = taCenter
+        Width = 100
+      end    
+      item
+        Width = 500
+      end    
+      item
+        Alignment = taRightJustify
+        Width = 100
+      end>
+    SimplePanel = False
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 64
+    Top = 0
+    Width = 897
+    ButtonHeight = 60
+    ButtonWidth = 57
+    Caption = 'ToolBar1'
+    HotImages = DM_General.ImgAcciones
+    Images = DM_General.ImgAcciones
+    ShowCaptions = True
+    TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Action = prgSalir
+    end
+    object ToolButton2: TToolButton
+      Left = 58
+      Top = 2
+      Width = 10
+      Caption = 'ToolButton2'
+      Style = tbsSeparator
+    end
+  end
+  object ActionList1: TActionList
+    Images = DM_General.ImgAcciones
+    left = 600
+    top = 152
+    object prgSalir: TAction
+      Category = 'Programa'
+      Caption = 'Salir'
+      Hint = 'Sale del programa'
+      ImageIndex = 0
+      OnExecute = prgSalirExecute
+    end
+    object empAE: TAction
+      Category = 'Empresas'
+      Caption = 'Alta/Edicion de Empresas'
+      Hint = 'Modifica o da de alta una empresa nueva'
+      ImageIndex = 29
+      OnExecute = empAEExecute
+    end
+    object prgUsuarios: TAction
+      Category = 'Programa'
+      Caption = 'Usuarios'
+      Hint = 'Administración de los usuarios'
+      ImageIndex = 28
+      OnExecute = prgUsuariosExecute
+    end
+  end
+  object MainMenu1: TMainMenu
+    Images = DM_General.ImgAcciones
+    left = 488
+    top = 144
+    object MenuItem1: TMenuItem
+      Caption = 'Programa'
+      object MenuItem4: TMenuItem
+        Action = prgUsuarios
+      end
+      object MenuItem2: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem3: TMenuItem
+        Action = prgSalir
+      end
+    end
+  end
+end

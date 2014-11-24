@@ -1,0 +1,26 @@
+object DM_Conexion: TDM_Conexion
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 300
+  HorizontalOffset = 497
+  VerticalOffset = 133
+  Width = 400
+  object cnxBase: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    ClientCodepage = 'UTF8'
+    Properties.Strings = (
+      'codepage=UTF8'
+    )
+    TransactIsolationLevel = tiReadCommitted
+    Connected = True
+    HostName = 'localhost'
+    Port = 0
+    Database = 'C:\Dropbox\bak\Trabajo\Trabajo\Windows\Creditos\db\CREDITOS.FDB'
+    User = 'sysdba'
+    Password = 'masterkey'
+    Protocol = 'firebird-2.5'
+    left = 237
+    top = 80
+  end
+end

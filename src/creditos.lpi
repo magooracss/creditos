@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="9"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="Creditos"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <VersionInfo>
+      <UseVersionInfo Value="True"/>
+      <AutoIncrementBuild Value="True"/>
+      <MajorVersionNr Value="2"/>
+      <BuildNr Value="6"/>
+      <Language Value="080A"/>
+      <StringTable CompanyName="RACSS Programación" LegalCopyright="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
+    </VersionInfo>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="5">
+      <Item1>
+        <PackageName Value="FCL"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="zcomponent"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="lazreport"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="rxnew"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="LCL"/>
+      </Item5>
+    </RequiredPackages>
+    <Units Count="10">
+      <Unit0>
+        <Filename Value="creditos.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="creditos"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="frm_main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_main"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="dmgeneral.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_General"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmgeneral"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="versioninfo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="versioninfo"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="dmconexion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Conexion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmConexion"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="SD_Configuracion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SD_Configuracion"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="dmseguridad.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Seguridad"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmseguridad"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="frm_login.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLogin"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_login"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="frm_usuarioslistado.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUsuariosListado"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_usuarioslistado"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="frm_usuarioae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUsuarioAE"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_usuarioae"/>
+      </Unit9>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="../exe/creditos"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <CompilerMessages>
+        <MsgFileName Value=""/>
+      </CompilerMessages>
+      <CompilerPath Value="$(CompPath)"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>
