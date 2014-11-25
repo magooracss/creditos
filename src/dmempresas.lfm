@@ -177,4 +177,509 @@ object dm_empresas: Tdm_empresas
       Required = False
     end
   end
+  object EmpresasSEL: TZQuery
+    Connection = DM_Conexion.cnxBase
+    Active = True
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Empresas'
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 64
+    top = 112
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object EmpresasSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object EmpresasSELLOGO: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object EmpresasSELRAZONSOCIAL: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'RAZONSOCIAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object EmpresasSELCUIT: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object EmpresasSELCODIGOBAPRO: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CODIGOBAPRO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object EmpresasSELCODIGOBANCOS: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CODIGOBANCOS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object EmpresasSELDOMICILIO: TStringField
+      DisplayWidth = 4000
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4000
+    end
+    object EmpresasSELPERSONACONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'PERSONACONTACTO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object EmpresasSELTELEFONO: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'TELEFONO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+    object EmpresasSELBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object EmpresasINS: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'INSERT INTO Empresas'
+      '(ID,'
+      ' logo,'
+      ' razonSocial,'
+      '  cuit,'
+      '  codigoBapro,'
+      ' codigoBancos,'
+      ' domicilio,'
+      'personaContacto, '
+      'telefono,'
+      '  BVISIBLE)'
+      'VALUES'
+      '( :ID,'
+      '  :logo,'
+      '  :razonSocial,'
+      '  :cuit,'
+      '  :codigoBapro,'
+      '  :codigoBancos,'
+      '  :domicilio,'
+      '  :personaContacto, '
+      '  :telefono,'
+      '  :BVISIBLE)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'logo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'razonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBapro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBancos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'personaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'telefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+    left = 64
+    top = 184
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'logo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'razonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBapro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBancos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'personaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'telefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end>
+  end
+  object EmpresasUPD: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'UPDATE  Empresas'
+      'SET '
+      ' logo = :logo'
+      ', razonSocial = :razonSocial'
+      ', cuit = :cuit'
+      ', codigoBapro = :codigoBapro'
+      ', codigoBancos = :codigoBancos'
+      ', domicilio = :domicilio'
+      ', personaContacto = :personaContacto'
+      ', telefono = :telefono'
+      ', BVISIBLE = :bVisible'
+      'WHERE  (ID = :ID)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'logo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'razonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBapro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBancos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'personaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'telefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 64
+    top = 248
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'logo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'razonSocial'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuit'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBapro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'codigoBancos'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'domicilio'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'personaContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'telefono'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'BVISIBLE'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+  end
+  object qTodasLasEmpresas: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM  Empresas'
+      'WHERE (bVisible = 1)'
+      'ORDER BY razonSocial'
+    )
+    Params = <>
+    left = 64
+    top = 300
+    object qTodasLasEmpresasID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qTodasLasEmpresasLOGO: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOGO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object qTodasLasEmpresasRAZONSOCIAL: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'RAZONSOCIAL'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qTodasLasEmpresasCUIT: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object qTodasLasEmpresasCODIGOBAPRO: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CODIGOBAPRO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object qTodasLasEmpresasCODIGOBANCOS: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CODIGOBANCOS'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object qTodasLasEmpresasDOMICILIO: TStringField
+      DisplayWidth = 4000
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 4000
+    end
+    object qTodasLasEmpresasPERSONACONTACTO: TStringField
+      DisplayWidth = 2000
+      FieldKind = fkData
+      FieldName = 'PERSONACONTACTO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 2000
+    end
+    object qTodasLasEmpresasTELEFONO: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'TELEFONO'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+    object qTodasLasEmpresasBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
 end

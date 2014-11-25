@@ -36,7 +36,9 @@ type
     Label7: TLabel;
     OPD: TOpenPictureDialog;
     Panel1: TPanel;
+    procedure BitBtn1Click(Sender: TObject);
     procedure btnCargarLogoClick(Sender: TObject);
+    procedure btnGrabarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     _idEmpresa: GUID_ID;
@@ -58,13 +60,30 @@ begin
   if _idEmpresa = GUIDNULO then
     dm_empresas.Nuevo
   else
+  begin
     dm_empresas.Editar(_idEmpresa);
+    dm_empresas.MostrarLogo(ImgLogo);
+  end;
 end;
 
 procedure TfrmEmpresaAE.btnCargarLogoClick(Sender: TObject);
 begin
   if OPD.Execute then
+  begin
     ImgLogo.Picture.LoadFromFile(OPD.FileName);
+    dm_empresas.CargarLogo(OPD.FileName);
+  end;
+end;
+
+procedure TfrmEmpresaAE.BitBtn1Click(Sender: TObject);
+begin
+  dm_empresas.Empresaslogo.SaveToFile('c:\magoo\1.jpg');
+end;
+
+procedure TfrmEmpresaAE.btnGrabarClick(Sender: TObject);
+begin
+  dm_empresas.GrabarEmpresa;
+  ModalResult:= mrOK;
 end;
 
 end.

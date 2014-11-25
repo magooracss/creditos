@@ -11,6 +11,7 @@ object frmEmpresasListado: TfrmEmpresasListado
   Font.Name = 'Arial'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.2.6.0'
   object Panel1: TPanel
@@ -112,12 +113,12 @@ object frmEmpresasListado: TfrmEmpresasListado
       OnClick = btnNuevaEmpresaClick
       TabOrder = 1
     end
-    object BitBtn3: TBitBtn
+    object btnEditarEmpresa: TBitBtn
       Left = 464
       Height = 30
       Top = 10
       Width = 115
-      Caption = 'BitBtn3'
+      Caption = 'Editar'
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000905B3114905B
@@ -154,6 +155,7 @@ object frmEmpresasListado: TfrmEmpresasListado
         FF00E2AC5F36E2AC5FC6EABC81FFE8B777FFE6B26DFFE4B068FFE2AC5FF0E2AC
         5FE3E2AC5FCFE2AC5FCCE2AC5FBBE2AC5FA8E2AC5F4BE2AC5F05
       }
+      OnClick = btnEditarEmpresaClick
       TabOrder = 2
     end
     object BitBtn4: TBitBtn

@@ -18,13 +18,15 @@ type
   TfrmEmpresasListado = class(TForm)
     btnSalir: TBitBtn;
     btnNuevaEmpresa: TBitBtn;
-    BitBtn3: TBitBtn;
+    btnEditarEmpresa: TBitBtn;
     BitBtn4: TBitBtn;
     dsEmpresas: TDataSource;
     DBGrid1: TDBGrid;
     Panel1: TPanel;
+    procedure btnEditarEmpresaClick(Sender: TObject);
     procedure btnNuevaEmpresaClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     procedure EditarEmpresa (idEmpresa: GUID_ID);
   public
@@ -42,10 +44,14 @@ uses
 
 { TfrmEmpresasListado }
 
-{ TODO 1 -oMagoo -cEmpresas : Terminar ABM de empresas }
 procedure TfrmEmpresasListado.btnSalirClick(Sender: TObject);
 begin
   ModalResult:= mrOK;
+end;
+
+procedure TfrmEmpresasListado.FormShow(Sender: TObject);
+begin
+  dm_empresas.TodasLasEmpresas;
 end;
 
 procedure TfrmEmpresasListado.EditarEmpresa(idEmpresa: GUID_ID);
@@ -64,6 +70,11 @@ end;
 procedure TfrmEmpresasListado.btnNuevaEmpresaClick(Sender: TObject);
 begin
   EditarEmpresa(GUIDNULO);
+end;
+
+procedure TfrmEmpresasListado.btnEditarEmpresaClick(Sender: TObject);
+begin
+  EditarEmpresa(dm_empresas.Empresasid.AsString);
 end;
 
 end.

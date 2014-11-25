@@ -5,8 +5,8 @@ unit dmempresas;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, rxmemds
-  ,dmgeneral
+  Classes, SysUtils, db, FileUtil, rxmemds, ZDataset
+  ,dmgeneral,extCtrls
   ;
 
 type
@@ -24,7 +24,31 @@ type
     Empresaslogo: TBlobField;
     EmpresaspersonaContacto: TStringField;
     EmpresasrazonSocial: TStringField;
+    EmpresasSELBVISIBLE: TSmallintField;
+    EmpresasSELCODIGOBANCOS: TStringField;
+    EmpresasSELCODIGOBAPRO: TStringField;
+    EmpresasSELCUIT: TStringField;
+    EmpresasSELDOMICILIO: TStringField;
+    EmpresasSELID: TStringField;
+    EmpresasSELLOGO: TBlobField;
+    EmpresasSELPERSONACONTACTO: TStringField;
+    EmpresasSELRAZONSOCIAL: TStringField;
+    EmpresasSELTELEFONO: TStringField;
     Empresastelefono: TStringField;
+    qTodasLasEmpresas: TZQuery;
+    EmpresasINS: TZQuery;
+    EmpresasSEL: TZQuery;
+    qTodasLasEmpresasBVISIBLE: TSmallintField;
+    qTodasLasEmpresasCODIGOBANCOS: TStringField;
+    qTodasLasEmpresasCODIGOBAPRO: TStringField;
+    qTodasLasEmpresasCUIT: TStringField;
+    qTodasLasEmpresasDOMICILIO: TStringField;
+    qTodasLasEmpresasID: TStringField;
+    qTodasLasEmpresasLOGO: TBlobField;
+    qTodasLasEmpresasPERSONACONTACTO: TStringField;
+    qTodasLasEmpresasRAZONSOCIAL: TStringField;
+    qTodasLasEmpresasTELEFONO: TStringField;
+    EmpresasUPD: TZQuery;
     procedure EmpresasAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
@@ -33,6 +57,10 @@ type
     procedure Editar(idEmpresa: GUID_ID);
 
     procedure CargarLogo(rutaImg: String);
+    procedure TodasLasEmpresas;
+    procedure MostrarLogo(var img: TImage);
+
+    procedure GrabarEmpresa;
   end;
 
 var
@@ -64,15 +92,53 @@ begin
   Result:= Empresasid.AsString;
 end;
 
-{ TODO 1 -oMagoo -cEmpresas : Editar Empresas }
 procedure Tdm_empresas.Editar(idEmpresa: GUID_ID);
 begin
-
+  DM_General.ReiniciarTabla(Empresas);
+  with EmpresasSEL do
+  begin
+    if active then close;
+    ParamByName('id').AsString:= idEmpresa;
+    Open;
+    Empresas.LoadFromDataSet(EmpresasSEL, 0, lmAppend);
+    Empresas.Edit;
+  end;
 end;
 
-{ TODO 5 -oMagoo -cEmpresas : Hacer la parte de persistencia del logo de la empresa }
 procedure Tdm_empresas.CargarLogo(rutaImg: String);
 begin
+  Empresaslogo.LoadFromFile(rutaImg);
+end;
+
+procedure Tdm_empresas.TodasLasEmpresas;
+begin
+  DM_General.ReiniciarTabla(Empresas);
+  with qTodasLasEmpresas do
+  begin
+    if active then close;
+    Open;
+    Empresas.LoadFromDataSet(qTodasLasEmpresas, 0, lmAppend);
+    close;
+  end;
+end;
+
+procedure Tdm_empresas.MostrarLogo(var img: TImage);
+var
+  elStream: TMemoryStream;
+begin
+  elStream:= TMemoryStream.Create;
+  try
+    Empresaslogo.SaveToStream(elStream);
+    elStream.Position:= 0;
+    img.Picture.LoadFromStream(elStream);
+  finally
+    elStream.Free;
+  end;
+end;
+
+procedure Tdm_empresas.GrabarEmpresa;
+begin
+  DM_General.GrabarDatos(EmpresasSEL, EmpresasINS, EmpresasUPD, Empresas, 'id');
 end;
 
 end.

@@ -19,7 +19,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <BuildNr Value="6"/>
+      <BuildNr Value="8"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" LegalCopyright="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -126,6 +126,7 @@
         <Filename Value="frm_empresaslistado.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEmpresasListado"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_empresaslistado"/>
       </Unit10>
@@ -133,6 +134,7 @@
         <Filename Value="dmempresas.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dm_empresas"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmempresas"/>
       </Unit11>
@@ -140,6 +142,7 @@
         <Filename Value="frm_empresaae.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEmpresaAE"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_empresaae"/>
       </Unit12>
