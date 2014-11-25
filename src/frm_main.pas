@@ -78,6 +78,7 @@ begin
   Info.Free;
 
   st.Panels[0].Text:= 'v:' + NroVersion;
+  st.Panels[1].Text:= ' Usuario: ' + DM_Seguridad.usuario;
   st.Panels[2].Text:= FormatDateTime('dd/mm/yyyy', now)+ '        ';
 end;
 

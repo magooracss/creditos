@@ -27,21 +27,22 @@ begin
   end;
   SysUtils.DefaultFormatSettings.DecimalSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_DECIMAL)[1];
   SysUtils.DefaultFormatSettings.ThousandSeparator:= SD_Configuracion.LeerDato(SECCION_APP,CFG_SEP_MILES)[1];
-Application.CreateForm(TDM_Conexion, DM_Conexion);
-Application.CreateForm(TDM_General, DM_General);
-Application.CreateForm(TDM_Seguridad, DM_Seguridad);
-Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TDM_Conexion, DM_Conexion);
+  Application.CreateForm(TDM_General, DM_General);
+  Application.CreateForm(TDM_Seguridad, DM_Seguridad);
 
-{ TODO 1 -oMagoo -cSeguridad : Habilitar el chequeo de usuario }
   frmLogin := TfrmLogin.Create(nil);
   if frmLogin.ShowModal <> mrOK then
   begin
     frmLogin.Free;
- //   Application.Terminate;
+    Application.Terminate;
   end
   else
     frmLogin.Free;
-  Application.CreateForm(TfrmUsuarioAE, frmUsuarioAE);
+
+  Application.CreateForm(TfrmMain, frmMain);
+
+
   Application.Run;
 end.
 

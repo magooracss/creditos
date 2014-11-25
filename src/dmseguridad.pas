@@ -24,6 +24,14 @@ type
     qGruposUsuariosBVISIBLE: TSmallintField;
     qGruposUsuariosGRUPO: TStringField;
     qGruposUsuariosID: TStringField;
+    qTodosLosUsuariosBVISIBLE: TSmallintField;
+    qTodosLosUsuariosBVISIBLE_1: TSmallintField;
+    qTodosLosUsuariosCLAVE: TStringField;
+    qTodosLosUsuariosGRUPO: TStringField;
+    qTodosLosUsuariosGRUPO_ID: TStringField;
+    qTodosLosUsuariosID: TStringField;
+    qTodosLosUsuariosID_1: TStringField;
+    qTodosLosUsuariosUSUARIO: TStringField;
     qUsuario: TZQuery;
     qAccesos: TZQuery;
     qGruposUsuarios: TZQuery;
@@ -40,11 +48,6 @@ type
     Usuariosid: TStringField;
     UsuariosINS: TZQuery;
     qTodosLosUsuarios: TZQuery;
-    UsuariosSELBVISIBLE3: TSmallintField;
-    UsuariosSELCLAVE3: TStringField;
-    UsuariosSELGRUPO_ID3: TStringField;
-    UsuariosSELID3: TStringField;
-    UsuariosSELUSUARIO3: TStringField;
     UsuariosUPD: TZQuery;
     UsuariosSELBVISIBLE: TSmallintField;
     UsuariosSELBVISIBLE1: TSmallintField;
@@ -61,19 +64,27 @@ type
     UsuariosSELUSUARIO: TStringField;
     UsuariosSELUSUARIO1: TStringField;
     UsuariosSELUSUARIO2: TStringField;
-    Usuariosusuario: TStringField;
     UsuariosSEL: TZQuery;
+    Usuariosusuario: TStringField;
     procedure DataModuleCreate(Sender: TObject);
+    procedure UsuariosAfterInsert(DataSet: TDataSet);
   private
-    usuario: string;
+    _usuario: string;
     grupo: GUID_ID;
     function clave (laClave: string): string;
   public
+    property usuario: string read _usuario;
     function UsuarioValido(elUsuario, laClave: string): boolean;
     function AccesoValido (idAccion: GUID_ID): boolean;
 
+    procedure LevantarGruposUsuarios;
+
     function NuevoUsuario: GUID_ID;
     procedure EditarUsuario(idUsuario: GUID_ID);
+    procedure CambiarClave (laClave: string);
+    procedure GrabarUsuario;
+
+    procedure LevantarUsuarios;
   end;
 
 var
@@ -85,12 +96,21 @@ implementation
 
 { TDM_Seguridad }
 
-{ TODO 1 -oMagoo -cSeguridad : Falta el AfterInsert de la tabla usuarios para darle el ID y los valores por default }
 procedure TDM_Seguridad.DataModuleCreate(Sender: TObject);
 begin
-  usuario:= EmptyStr;
+  _usuario:= EmptyStr;
   grupo:= GUIDNULO;
 end;
+
+procedure TDM_Seguridad.UsuariosAfterInsert(DataSet: TDataSet);
+begin
+  Usuariosid.asString:= DM_General.CrearGUID;
+  Usuariosusuario.AsString:= EmptyStr;
+  Usuariosclave.asString:= EmptyStr;
+  UsuariosGrupo_id.AsString:= GUIDNULO;
+  UsuariosbVisible.asInteger:= 1;
+end;
+
 { TODO 1 -oMagoo -cSeguridad : Hacer rutina de encripcion para las claves }
 function TDM_Seguridad.clave(laClave: string): string;
 begin
@@ -107,7 +127,7 @@ begin
     if RecordCount > 0 then
       if  TRIM(qUsuarioCLAVE.AsString) = TRIM(clave(laClave)) then
       begin
-        usuario:= elUsuario;
+        _usuario:= elUsuario;
         grupo:= qUsuarioGRUPO_ID.AsString;
         Result:= true;
       end
@@ -131,16 +151,59 @@ begin
   end;
 end;
 
+procedure TDM_Seguridad.LevantarGruposUsuarios;
+begin
+  with qGruposUsuarios do
+  begin
+    if active then close;
+    Open;
+  end;
+end;
+
 function TDM_Seguridad.NuevoUsuario: GUID_ID;
 begin
   DM_General.ReiniciarTabla(Usuarios);
   qGruposUsuarios.Open;
   Usuarios.Insert;
+  Result:= Usuariosid.AsString;
 end;
 
 procedure TDM_Seguridad.EditarUsuario(idUsuario: GUID_ID);
 begin
-  { TODO 1 -oMagoo -cSeguridad : Hacer la edición de usuarios }
+  DM_General.ReiniciarTabla(Usuarios);
+  with UsuariosSEL do
+  begin
+    if active then close;
+    ParamByName('id').AsString:= idUsuario;
+    Open;
+    Usuarios.LoadFromDataSet(UsuariosSEL, 0, lmAppend);
+    Close;
+  end;
+  Usuarios.Edit;
+end;
+
+procedure TDM_Seguridad.CambiarClave(laClave: string);
+begin
+  with Usuarios do
+  begin
+    Edit;
+    Usuariosclave.AsString:= clave(laClave);
+    Post;
+  end;
+end;
+
+procedure TDM_Seguridad.GrabarUsuario;
+begin
+  DM_General.GrabarDatos(UsuariosSEL, UsuariosINS, UsuariosUPD, Usuarios, 'id');
+end;
+
+procedure TDM_Seguridad.LevantarUsuarios;
+begin
+  With qTodosLosUsuarios do
+  begin
+    if active then close;
+    Open;
+  end;
 end;
 
 end.

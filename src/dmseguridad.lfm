@@ -158,7 +158,7 @@ object DM_Seguridad: TDM_Seguridad
         Name = 'usuario'
         DataType = ftString
         Precision = 0
-        Size = 0
+        Size = 10
       end    
       item
         Name = 'clave'
@@ -184,6 +184,7 @@ object DM_Seguridad: TDM_Seguridad
         Precision = 0
         Size = 100
       end>
+    AfterInsert = UsuariosAfterInsert
     PacketRecords = 0
     left = 280
     top = 72
@@ -198,22 +199,11 @@ object DM_Seguridad: TDM_Seguridad
       Required = False
       Size = 38
     end
-    object Usuariosusuario: TStringField
-      DisplayWidth = 0
-      FieldKind = fkData
-      FieldName = 'usuario'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 0
-    end
     object Usuariosclave: TStringField
       DisplayWidth = 50
       FieldKind = fkData
       FieldName = 'clave'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -224,7 +214,7 @@ object DM_Seguridad: TDM_Seguridad
       DisplayWidth = 38
       FieldKind = fkData
       FieldName = 'Grupo_id'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -235,7 +225,7 @@ object DM_Seguridad: TDM_Seguridad
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'bVisible'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -245,12 +235,23 @@ object DM_Seguridad: TDM_Seguridad
       DisplayWidth = 100
       FieldKind = fkData
       FieldName = 'Grupo'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
       Size = 100
+    end
+    object Usuariosusuario: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
     end
   end
   object UsuariosSEL: TZQuery
@@ -573,14 +574,13 @@ object DM_Seguridad: TDM_Seguridad
       'SELECT *'
       'FROM Usuarios U'
       '            LEFT JOIN GruposUsuarios G ON G.id = U.grupo_id'
-      'WHERE (U.bVisible = 1) '
-      '      and  (G.bVisible = 1)'
+      'WHERE (G.bVisible = 1)'
       'ORDER BY grupo, usuario'
     )
     Params = <>
     left = 280
     top = 344
-    object UsuariosSELID3: TStringField
+    object qTodosLosUsuariosID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'ID'
@@ -591,7 +591,7 @@ object DM_Seguridad: TDM_Seguridad
       Required = True
       Size = 152
     end
-    object UsuariosSELUSUARIO3: TStringField
+    object qTodosLosUsuariosUSUARIO: TStringField
       DisplayWidth = 40
       FieldKind = fkData
       FieldName = 'USUARIO'
@@ -602,7 +602,7 @@ object DM_Seguridad: TDM_Seguridad
       Required = False
       Size = 40
     end
-    object UsuariosSELCLAVE3: TStringField
+    object qTodosLosUsuariosCLAVE: TStringField
       DisplayWidth = 200
       FieldKind = fkData
       FieldName = 'CLAVE'
@@ -613,7 +613,7 @@ object DM_Seguridad: TDM_Seguridad
       Required = False
       Size = 200
     end
-    object UsuariosSELGRUPO_ID3: TStringField
+    object qTodosLosUsuariosGRUPO_ID: TStringField
       DisplayWidth = 152
       FieldKind = fkData
       FieldName = 'GRUPO_ID'
@@ -624,7 +624,7 @@ object DM_Seguridad: TDM_Seguridad
       Required = False
       Size = 152
     end
-    object UsuariosSELBVISIBLE3: TSmallintField
+    object qTodosLosUsuariosBVISIBLE: TSmallintField
       DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'BVISIBLE'
@@ -634,10 +634,41 @@ object DM_Seguridad: TDM_Seguridad
       ReadOnly = False
       Required = False
     end
+    object qTodosLosUsuariosID_1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID_1'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qTodosLosUsuariosGRUPO: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'GRUPO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+    object qTodosLosUsuariosBVISIBLE_1: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE_1'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object qGruposUsuarios: TZQuery
     Connection = DM_Conexion.cnxBase
-    Active = True
     SQL.Strings = (
       'SELECT *'
       'FROM GruposUsuarios'
