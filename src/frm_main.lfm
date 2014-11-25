@@ -70,12 +70,12 @@ object frmMain: TfrmMain
       ImageIndex = 0
       OnExecute = prgSalirExecute
     end
-    object empAE: TAction
+    object empListado: TAction
       Category = 'Empresas'
-      Caption = 'Alta/Edicion de Empresas'
+      Caption = 'Empresas'
       Hint = 'Modifica o da de alta una empresa nueva'
       ImageIndex = 29
-      OnExecute = empAEExecute
+      OnExecute = empListadoExecute
     end
     object prgUsuarios: TAction
       Category = 'Programa'
@@ -91,6 +91,9 @@ object frmMain: TfrmMain
     top = 144
     object MenuItem1: TMenuItem
       Caption = 'Programa'
+      object MenuItem5: TMenuItem
+        Action = empListado
+      end
       object MenuItem4: TMenuItem
         Action = prgUsuarios
       end

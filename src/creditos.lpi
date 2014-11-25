@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="13">
       <Unit0>
         <Filename Value="creditos.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -122,6 +122,27 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_usuarioae"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="frm_empresaslistado.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEmpresasListado"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_empresaslistado"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="dmempresas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dm_empresas"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmempresas"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="frm_empresaae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEmpresaAE"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_empresaae"/>
+      </Unit12>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

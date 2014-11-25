@@ -10,7 +10,7 @@ uses
   Forms, rxnew, zcomponent, frm_main, dmgeneral, versioninfo, dmconexion,
   SD_Configuracion
   ,sysutils, dmseguridad, frm_login, controls, frm_usuarioslistado, 
-frm_usuarioae
+frm_usuarioae, frm_empresaslistado, dmempresas, frm_empresaae
   ;
 
 {$R *.res}

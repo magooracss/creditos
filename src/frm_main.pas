@@ -17,8 +17,9 @@ type
 
   TfrmMain = class(TForm)
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     prgUsuarios: TAction;
-    empAE: TAction;
+    empListado: TAction;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -29,7 +30,7 @@ type
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
-    procedure empAEExecute(Sender: TObject);
+    procedure empListadoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure prgSalirExecute(Sender: TObject);
     procedure prgUsuariosExecute(Sender: TObject);
@@ -47,6 +48,8 @@ implementation
 uses
   versioninfo
   ,frm_usuarioslistado
+  ,dmempresas
+  ,frm_empresaslistado
   ;
 
 { TfrmMain }
@@ -102,9 +105,21 @@ end;
 **** EMPRESAS
 ********************************************************************************)
 
-procedure TfrmMain.empAEExecute(Sender: TObject);
+procedure TfrmMain.empListadoExecute(Sender: TObject);
+var
+ pant: TfrmEmpresasListado;
 begin
-
+  Application.CreateForm(Tdm_empresas, dm_empresas);
+  pant:= TfrmEmpresasListado.Create(self);
+  try
+    if DM_Seguridad.AccesoValido(EMPR_LISTA) then
+      pant.ShowModal
+    else
+      ShowMessage ('No tiene permisos para acceder a esta opción');
+  finally
+    pant.Free;
+    DM_Seguridad.Free;
+  end;
 end;
 
 end.

@@ -10,7 +10,7 @@ uses
   ;
 
 const
-  EMP_AE = '{1EFD35DE-F0FB-42F9-837A-48F49E6DF70C}'; //Alta/Edicion de empresas;
+  EMPR_LISTA = '{1EFD35DE-F0FB-42F9-837A-48F49E6DF70C}'; //Listado de empresas
 
   USR_LISTA = '{EEA6E1D9-79BB-4432-979D-4715DD92F237}';//Listado de usuarios
 type
@@ -119,6 +119,7 @@ end;
 
 function TDM_Seguridad.UsuarioValido(elUsuario, laClave: string): boolean;
 begin
+  Result := False;
   with qUsuario do
   begin
     if active then close;
