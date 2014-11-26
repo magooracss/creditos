@@ -17,6 +17,8 @@ const
   DIR_SERVIDOR = 'SERVIDOR';        //Ruta al archivo ejecutable
   RUTA_LISTADOS = 'RUTA_LISTADOS';
 
+  ULT_EMPRESA = 'ULT_EMPR'; //Ultima Empresa seleccionada
+
   CFG_FONDO = 'FONDO_PANTALLA';
   CFG_SEP_DECIMAL = 'SEP_DECIMAL';
   CFG_SEP_MILES='SEP_MILES';

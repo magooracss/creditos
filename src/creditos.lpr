@@ -10,7 +10,8 @@ uses
   Forms, rxnew, zcomponent, frm_main, dmgeneral, versioninfo, dmconexion,
   SD_Configuracion
   ,sysutils, dmseguridad, frm_login, controls, frm_usuarioslistado, 
-frm_usuarioae, frm_empresaslistado, dmempresas, frm_empresaae
+frm_usuarioae, frm_empresaslistado, dmempresas, frm_empresaae,
+frm_empresasseleccion
   ;
 
 {$R *.res}
@@ -30,6 +31,8 @@ begin
   Application.CreateForm(TDM_Conexion, DM_Conexion);
   Application.CreateForm(TDM_General, DM_General);
   Application.CreateForm(TDM_Seguridad, DM_Seguridad);
+  Application.CreateForm(Tdm_empresas, dm_empresas);
+
 
   frmLogin := TfrmLogin.Create(nil);
   if frmLogin.ShowModal <> mrOK then
@@ -38,11 +41,11 @@ begin
     Application.Terminate;
   end
   else
+  begin
     frmLogin.Free;
+    Application.CreateForm(TfrmMain, frmMain);
+    Application.Run;
+  end;
 
-  Application.CreateForm(TfrmMain, frmMain);
-
-
-  Application.Run;
 end.
 

@@ -129,9 +129,14 @@ var
 begin
   elStream:= TMemoryStream.Create;
   try
-    Empresaslogo.SaveToStream(elStream);
-    elStream.Position:= 0;
-    img.Picture.LoadFromStream(elStream);
+    if Empresaslogo.BlobSize > 0 then
+    begin
+      Empresaslogo.SaveToStream(elStream);
+      elStream.Position:= 0;
+      img.Picture.LoadFromStream(elStream);
+    end
+    else
+      img.Picture.Clear;
   finally
     elStream.Free;
   end;

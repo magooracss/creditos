@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, Menus, ExtCtrls, DBGrids
+  ActnList, Menus, ExtCtrls, DBGrids, StdCtrls, Buttons
   , dmgeneral
   , dmseguridad
   ;
@@ -16,10 +16,14 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    empCambiar: TAction;
+    BitBtn1: TBitBtn;
     DBGrid1: TDBGrid;
-    Image1: TImage;
+    imgLogo: TImage;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     Panel1: TPanel;
     prgUsuarios: TAction;
     empListado: TAction;
@@ -31,15 +35,24 @@ type
     ActionList1: TActionList;
     Splitter1: TSplitter;
     st: TStatusBar;
+    stCUIT: TStaticText;
+    stRazonSocial: TStaticText;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure empCambiarExecute(Sender: TObject);
     procedure empListadoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure prgSalirExecute(Sender: TObject);
     procedure prgUsuariosExecute(Sender: TObject);
   private
+    idEmpresaActual: GUID_ID;
+
     procedure Inicializar;
+
+    procedure LevantarEmpresa;
+    procedure CambiarEmpresa;
   public
     { public declarations }
   end;
@@ -54,6 +67,8 @@ uses
   ,frm_usuarioslistado
   ,dmempresas
   ,frm_empresaslistado
+  ,SD_Configuracion
+  ,frm_empresasseleccion
   ;
 
 { TfrmMain }
@@ -76,6 +91,8 @@ Var
   NroVersion: String;
   Info: TVersionInfo;
 begin
+  idEmpresaActual:= GUIDNULO;
+
   Info := TVersionInfo.Create;
   Info.Load(HINSTANCE);
   NroVersion := IntToStr(Info.FixedInfo.FileVersion[0])+'.'
@@ -87,7 +104,10 @@ begin
   st.Panels[0].Text:= 'v:' + NroVersion;
   st.Panels[1].Text:= ' Usuario: ' + DM_Seguridad.usuario;
   st.Panels[2].Text:= FormatDateTime('dd/mm/yyyy', now)+ '        ';
+
+  LevantarEmpresa;
 end;
+
 
 
 procedure TfrmMain.prgUsuariosExecute(Sender: TObject);
@@ -113,7 +133,6 @@ procedure TfrmMain.empListadoExecute(Sender: TObject);
 var
  pant: TfrmEmpresasListado;
 begin
-  Application.CreateForm(Tdm_empresas, dm_empresas);
   pant:= TfrmEmpresasListado.Create(self);
   try
     if DM_Seguridad.AccesoValido(EMPR_LISTA) then
@@ -122,9 +141,51 @@ begin
       ShowMessage ('No tiene permisos para acceder a esta opción');
   finally
     pant.Free;
-    DM_Seguridad.Free;
   end;
 end;
+
+procedure TfrmMain.LevantarEmpresa;
+begin
+  idEmpresaActual := LeerDato (SECCION_APP ,ULT_EMPRESA);
+  if idEmpresaActual <> GUIDNULO then
+  begin
+    dm_empresas.Editar(idEmpresaActual);
+    stRazonSocial.Caption:= dm_empresas.EmpresasrazonSocial.AsString;
+    stCUIT.Caption:= dm_empresas.Empresascuit.AsString;
+    dm_empresas.MostrarLogo(imgLogo)
+  end;
+end;
+
+procedure TfrmMain.CambiarEmpresa;
+var
+ pant: TfrmEmpresasSeleccion;
+begin
+  pant:= TfrmEmpresasSeleccion.Create(self);
+  try
+    if pant.ShowModal = mrOK then
+    begin
+     idEmpresaActual:= pant.idSeleccion;
+     EscribirDato(SECCION_APP, ULT_EMPRESA, idEmpresaActual);
+     LevantarEmpresa;
+    end;
+  finally
+    pant.Free;
+  end;
+
+end;
+
+procedure TfrmMain.BitBtn1Click(Sender: TObject);
+begin
+end;
+
+procedure TfrmMain.empCambiarExecute(Sender: TObject);
+begin
+  if DM_Seguridad.AccesoValido(EMPR_CAMBIAR) then
+    CambiarEmpresa
+  else
+    ShowMessage ('No tiene permisos para cambiar de empresa');
+end;
+
 
 end.
 

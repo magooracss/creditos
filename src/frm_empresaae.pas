@@ -36,7 +36,6 @@ type
     Label7: TLabel;
     OPD: TOpenPictureDialog;
     Panel1: TPanel;
-    procedure BitBtn1Click(Sender: TObject);
     procedure btnCargarLogoClick(Sender: TObject);
     procedure btnGrabarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -73,11 +72,6 @@ begin
     ImgLogo.Picture.LoadFromFile(OPD.FileName);
     dm_empresas.CargarLogo(OPD.FileName);
   end;
-end;
-
-procedure TfrmEmpresaAE.BitBtn1Click(Sender: TObject);
-begin
-  dm_empresas.Empresaslogo.SaveToFile('c:\magoo\1.jpg');
 end;
 
 procedure TfrmEmpresaAE.btnGrabarClick(Sender: TObject);
