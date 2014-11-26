@@ -23,6 +23,7 @@ type
     dsEmpresas: TDataSource;
     DBGrid1: TDBGrid;
     Panel1: TPanel;
+    procedure BitBtn4Click(Sender: TObject);
     procedure btnEditarEmpresaClick(Sender: TObject);
     procedure btnNuevaEmpresaClick(Sender: TObject);
     procedure btnSalirClick(Sender: TObject);
@@ -75,6 +76,15 @@ end;
 procedure TfrmEmpresasListado.btnEditarEmpresaClick(Sender: TObject);
 begin
   EditarEmpresa(dm_empresas.Empresasid.AsString);
+end;
+
+procedure TfrmEmpresasListado.BitBtn4Click(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Borro la empresa seleccionada?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+  begin
+    DM_Empresas.eliminarEmpresa(dm_empresas.Empresasid.AsString);
+    dm_empresas.TodasLasEmpresas;
+  end;
 end;
 
 end.

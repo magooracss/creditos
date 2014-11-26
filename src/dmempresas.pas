@@ -59,6 +59,7 @@ type
     procedure CargarLogo(rutaImg: String);
     procedure TodasLasEmpresas;
     procedure MostrarLogo(var img: TImage);
+    procedure EliminarEmpresa(idEmpresa: GUID_ID);
 
     procedure GrabarEmpresa;
   end;
@@ -134,6 +135,17 @@ begin
   finally
     elStream.Free;
   end;
+end;
+
+procedure Tdm_empresas.EliminarEmpresa(idEmpresa: GUID_ID);
+begin
+  Editar(idEmpresa);
+  with Empresas do
+  begin
+    EmpresasbVisible.AsInteger:= 0;
+    Post;
+  end;
+  GrabarEmpresa;
 end;
 
 procedure Tdm_empresas.GrabarEmpresa;

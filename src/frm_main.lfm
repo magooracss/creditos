@@ -59,6 +59,44 @@ object frmMain: TfrmMain
       Style = tbsSeparator
     end
   end
+  object Panel1: TPanel
+    Left = 0
+    Height = 365
+    Top = 64
+    Width = 216
+    Align = alLeft
+    ClientHeight = 365
+    ClientWidth = 216
+    TabOrder = 2
+    object Image1: TImage
+      Left = 10
+      Height = 176
+      Top = 8
+      Width = 197
+      Anchors = [akTop, akLeft, akRight]
+    end
+  end
+  object Splitter1: TSplitter
+    Left = 216
+    Height = 365
+    Top = 64
+    Width = 5
+  end
+  object DBGrid1: TDBGrid
+    Left = 221
+    Height = 365
+    Top = 64
+    Width = 676
+    Align = alClient
+    Color = clWindow
+    Columns = <>
+    TabOrder = 4
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+  end
   object ActionList1: TActionList
     Images = DM_General.ImgAcciones
     left = 600

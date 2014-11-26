@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ActnList, Menus
+  ActnList, Menus, ExtCtrls, DBGrids
   , dmgeneral
   , dmseguridad
   ;
@@ -16,8 +16,11 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    DBGrid1: TDBGrid;
+    Image1: TImage;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
+    Panel1: TPanel;
     prgUsuarios: TAction;
     empListado: TAction;
     MainMenu1: TMainMenu;
@@ -26,6 +29,7 @@ type
     MenuItem3: TMenuItem;
     prgSalir: TAction;
     ActionList1: TActionList;
+    Splitter1: TSplitter;
     st: TStatusBar;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;

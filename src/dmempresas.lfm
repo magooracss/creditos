@@ -179,7 +179,6 @@ object dm_empresas: Tdm_empresas
   end
   object EmpresasSEL: TZQuery
     Connection = DM_Conexion.cnxBase
-    Active = True
     SQL.Strings = (
       'SELECT *'
       'FROM Empresas'

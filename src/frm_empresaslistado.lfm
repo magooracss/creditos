@@ -163,7 +163,7 @@ object frmEmpresasListado: TfrmEmpresasListado
       Height = 30
       Top = 10
       Width = 115
-      Caption = 'BitBtn4'
+      Caption = 'Borrar'
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000905B3114905B
@@ -200,6 +200,7 @@ object frmEmpresasListado: TfrmEmpresasListado
         FF00E2AC5F36E2AC5FC6EABC81FFE8B777FFE6B26DFFE4B068FFE2AC5FF0E2AC
         5FE3E2AC5FCFE2AC5FCCE2AC5FBBE2AC5FA8E2AC5F4BE2AC5F05
       }
+      OnClick = BitBtn4Click
       TabOrder = 3
     end
   end
@@ -209,9 +210,32 @@ object frmEmpresasListado: TfrmEmpresasListado
     Top = 0
     Width = 715
     Align = alClient
+    AutoFillColumns = True
     Color = clWindow
-    Columns = <>
+    Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Razón Social'
+        Width = 310
+        FieldName = 'razonSocial'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'CUIT'
+        Width = 90
+        FieldName = 'cuit'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Domicilio'
+        Width = 311
+        FieldName = 'domicilio'
+      end>
     DataSource = dsEmpresas
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
     TabOrder = 1
     TitleFont.CharSet = ANSI_CHARSET
     TitleFont.Height = -13
