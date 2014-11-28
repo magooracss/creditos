@@ -1,0 +1,14 @@
+object DM_EdicionTUGs: TDM_EdicionTUGs
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 410
+  HorizontalOffset = 231
+  VerticalOffset = 88
+  Width = 666
+  object tbTabla: TZTable
+    CachedUpdates = True
+    TableName = 'TUGBANCOS'
+    left = 56
+    top = 40
+  end
+end

@@ -13,6 +13,8 @@ const
   EMPR_LISTA = '{1EFD35DE-F0FB-42F9-837A-48F49E6DF70C}'; //Listado de empresas
   EMPR_CAMBIAR = '{CFA53446-3DF5-464D-8CC6-29B71EC94867}'; //Cambiar de Empresa Actual
 
+  AFIL_NUEVO = '{3B6B8A05-2391-4B3C-8686-963899A64C96}'; //Alta de afiliados en la base
+
   USR_LISTA = '{EEA6E1D9-79BB-4432-979D-4715DD92F237}';//Listado de usuarios
 
 type

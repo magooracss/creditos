@@ -16,14 +16,19 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    afilListadoae: TAction;
+    afilNuevo: TAction;
     empCambiar: TAction;
     BitBtn1: TBitBtn;
     DBGrid1: TDBGrid;
     imgLogo: TImage;
+    MenuItem10: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     Panel1: TPanel;
     prgUsuarios: TAction;
     empListado: TAction;
@@ -40,7 +45,8 @@ type
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
-    procedure BitBtn1Click(Sender: TObject);
+    ToolButton3: TToolButton;
+    procedure afilNuevoExecute(Sender: TObject);
     procedure empCambiarExecute(Sender: TObject);
     procedure empListadoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -53,6 +59,8 @@ type
 
     procedure LevantarEmpresa;
     procedure CambiarEmpresa;
+
+    procedure pantallaAfiliado (idAfiliado: GUID_ID);
   public
     { public declarations }
   end;
@@ -69,6 +77,8 @@ uses
   ,frm_empresaslistado
   ,SD_Configuracion
   ,frm_empresasseleccion
+  ,frm_afiliadoae
+
   ;
 
 { TfrmMain }
@@ -174,9 +184,6 @@ begin
 
 end;
 
-procedure TfrmMain.BitBtn1Click(Sender: TObject);
-begin
-end;
 
 procedure TfrmMain.empCambiarExecute(Sender: TObject);
 begin
@@ -184,6 +191,29 @@ begin
     CambiarEmpresa
   else
     ShowMessage ('No tiene permisos para cambiar de empresa');
+end;
+
+(*******************************************************************************
+**** AFILIADOS
+********************************************************************************)
+
+procedure TfrmMain.pantallaAfiliado(idAfiliado: GUID_ID);
+var
+  pant: TfrmAfiliadoAE;
+begin
+   pant:= TfrmAfiliadoAE.Create(self);
+   try
+     pant.idAfiliado:= idAfiliado;
+     pant.ShowModal;
+   finally
+     pant.Free;
+   end;
+end;
+
+procedure TfrmMain.afilNuevoExecute(Sender: TObject);
+begin
+  if DM_Seguridad.AccesoValido(AFIL_NUEVO) then
+    pantallaAfiliado(GUIDNULO);
 end;
 
 

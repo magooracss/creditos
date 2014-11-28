@@ -58,6 +58,11 @@ object frmMain: TfrmMain
       Caption = 'ToolButton2'
       Style = tbsSeparator
     end
+    object ToolButton3: TToolButton
+      Left = 68
+      Top = 2
+      Action = afilNuevo
+    end
   end
   object Panel1: TPanel
     Left = 0
@@ -149,7 +154,6 @@ object frmMain: TfrmMain
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF00FF00
       }
-      OnClick = BitBtn1Click
       TabOrder = 2
     end
   end
@@ -206,6 +210,19 @@ object frmMain: TfrmMain
       ImageIndex = 34
       OnExecute = empCambiarExecute
     end
+    object afilNuevo: TAction
+      Category = 'Afiliados'
+      Caption = 'Nuevo'
+      Hint = 'Alta de afiliado en la empresa '
+      ImageIndex = 5
+      OnExecute = afilNuevoExecute
+    end
+    object afilListadoae: TAction
+      Category = 'Afiliados'
+      Caption = 'Editar/Borrar'
+      Hint = 'Listado de afiliados para edicion/borrado'
+      ImageIndex = 6
+    end
   end
   object MainMenu1: TMainMenu
     Images = DM_General.ImgAcciones
@@ -230,6 +247,15 @@ object frmMain: TfrmMain
       end
       object MenuItem3: TMenuItem
         Action = prgSalir
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Afiliados'
+      object MenuItem9: TMenuItem
+        Action = afilNuevo
+      end
+      object MenuItem10: TMenuItem
+        Caption = 'New Item10'
       end
     end
   end

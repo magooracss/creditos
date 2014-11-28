@@ -4,17 +4,15 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="26">
+    <Units Count="31">
       <Unit0>
         <Filename Value="creditos.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="creditos"/>
-        <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="28"/>
-        <CursorPos X="2" Y="48"/>
-        <UsageCount Value="29"/>
-        <Loaded Value="True"/>
+        <TopLine Value="7"/>
+        <CursorPos X="22" Y="15"/>
+        <UsageCount Value="30"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_main.pas"/>
@@ -23,12 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_main"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="170"/>
-        <CursorPos X="15" Y="182"/>
-        <UsageCount Value="29"/>
+        <TopLine Value="200"/>
+        <CursorPos X="53" Y="217"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -39,19 +36,16 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmgeneral"/>
-        <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
         <TopLine Value="296"/>
         <CursorPos X="49" Y="314"/>
-        <UsageCount Value="29"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="30"/>
       </Unit2>
       <Unit3>
         <Filename Value="versioninfo.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="versioninfo"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit3>
       <Unit4>
         <Filename Value="dmconexion.pas"/>
@@ -63,18 +57,16 @@
         <WindowIndex Value="0"/>
         <TopLine Value="34"/>
         <CursorPos X="48" Y="46"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit4>
       <Unit5>
         <Filename Value="SD_Configuracion.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SD_Configuracion"/>
-        <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="4"/>
         <CursorPos X="58" Y="20"/>
-        <UsageCount Value="29"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="30"/>
       </Unit5>
       <Unit6>
         <Filename Value="dmseguridad.pas"/>
@@ -83,12 +75,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmseguridad"/>
-        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="3" Y="14"/>
-        <UsageCount Value="29"/>
-        <Loaded Value="True"/>
+        <CursorPos X="16" Y="16"/>
+        <UsageCount Value="30"/>
       </Unit6>
       <Unit7>
         <Filename Value="frm_login.pas"/>
@@ -99,7 +89,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="51"/>
         <CursorPos X="18" Y="47"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit7>
       <Unit8>
         <Filename Value="frm_usuarioslistado.pas"/>
@@ -111,7 +101,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="48"/>
         <CursorPos X="34" Y="63"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit8>
       <Unit9>
         <Filename Value="frm_usuarioae.pas"/>
@@ -123,7 +113,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="38"/>
         <CursorPos X="1" Y="46"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="30"/>
       </Unit9>
       <Unit10>
         <Filename Value="frm_empresaslistado.pas"/>
@@ -135,7 +125,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="70"/>
         <CursorPos X="61" Y="83"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="28"/>
       </Unit10>
       <Unit11>
         <Filename Value="dmempresas.pas"/>
@@ -144,13 +134,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="dmempresas"/>
-        <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
         <TopLine Value="111"/>
         <CursorPos X="24" Y="140"/>
-        <UsageCount Value="26"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="27"/>
       </Unit11>
       <Unit12>
         <Filename Value="frm_empresaae.pas"/>
@@ -159,101 +146,171 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_empresaae"/>
-        <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="29"/>
         <CursorPos X="1" Y="39"/>
-        <UsageCount Value="26"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="27"/>
       </Unit12>
       <Unit13>
+        <Filename Value="frm_empresasseleccion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEmpresasSeleccion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_empresasseleccion"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="37"/>
+        <CursorPos X="22" Y="54"/>
+        <UsageCount Value="22"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="dmediciontugs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_EdicionTUGs"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmediciontugs"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="222"/>
+        <CursorPos X="95" Y="226"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="frm_ediciontugs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEdicionTugs"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_ediciontugs"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="49"/>
+        <CursorPos X="41" Y="60"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAfiliadoAE"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_afiliadoae"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="38"/>
+        <CursorPos X="148" Y="46"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="dmafiliados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Afiliados"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmafiliados"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="17" Y="5"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit17>
+      <Unit18>
         <Filename Value="dmconexion.lfm"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit13>
-      <Unit14>
+      </Unit18>
+      <Unit19>
         <Filename Value="C:\magoo\lazarus\lcl\lresources.pp"/>
         <UnitName Value="LResources"/>
         <WindowIndex Value="0"/>
         <TopLine Value="3048"/>
         <CursorPos X="34" Y="3098"/>
         <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+      </Unit19>
+      <Unit20>
         <Filename Value="dmgeneral.lfm"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit15>
-      <Unit16>
+      </Unit20>
+      <Unit21>
         <Filename Value="C:\magoo\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <WindowIndex Value="0"/>
         <TopLine Value="35"/>
         <CursorPos X="3" Y="46"/>
         <UsageCount Value="10"/>
-      </Unit16>
-      <Unit17>
+      </Unit21>
+      <Unit22>
         <Filename Value="C:\magoo\lazarus\lcl\include\customform.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1295"/>
         <CursorPos X="1" Y="1311"/>
         <UsageCount Value="10"/>
-      </Unit17>
-      <Unit18>
+      </Unit22>
+      <Unit23>
         <Filename Value="C:\magoo\lazarus\lcl\forms.pp"/>
         <UnitName Value="Forms"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
-      </Unit18>
-      <Unit19>
+      </Unit23>
+      <Unit24>
         <Filename Value="C:\magoo\lazarus\lcl\interfaces\win32\win32wsbuttons.pp"/>
         <UnitName Value="Win32WSButtons"/>
         <WindowIndex Value="0"/>
         <TopLine Value="484"/>
         <CursorPos X="1" Y="494"/>
         <UsageCount Value="10"/>
-      </Unit19>
-      <Unit20>
+      </Unit24>
+      <Unit25>
         <Filename Value="C:\magoo\lazarus\components\rxnew\rxmemds.pas"/>
         <UnitName Value="rxmemds"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1961"/>
         <CursorPos X="1" Y="1974"/>
         <UsageCount Value="10"/>
-      </Unit20>
-      <Unit21>
+      </Unit25>
+      <Unit26>
         <Filename Value="C:\magoo\lazarus\fpc\2.6.4\source\packages\fcl-db\src\base\db.pas"/>
         <UnitName Value="db"/>
         <WindowIndex Value="0"/>
         <TopLine Value="873"/>
         <CursorPos X="19" Y="883"/>
         <UsageCount Value="10"/>
-      </Unit21>
-      <Unit22>
+      </Unit26>
+      <Unit27>
         <Filename Value="C:\magoo\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="63"/>
         <CursorPos X="29" Y="82"/>
         <UsageCount Value="11"/>
-      </Unit22>
-      <Unit23>
+      </Unit27>
+      <Unit28>
         <Filename Value="C:\magoo\lazarus\lcl\extctrls.pp"/>
         <UnitName Value="ExtCtrls"/>
         <WindowIndex Value="0"/>
         <TopLine Value="477"/>
         <CursorPos X="31" Y="494"/>
         <UsageCount Value="10"/>
-      </Unit23>
-      <Unit24>
+      </Unit28>
+      <Unit29>
         <Filename Value="C:\magoo\lazarus\components\zeos\src\dbc\ZDbcInterbase6Utils.pas"/>
         <UnitName Value="ZDbcInterbase6Utils"/>
         <WindowIndex Value="0"/>
@@ -261,145 +318,140 @@
         <CursorPos X="1" Y="837"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit24>
-      <Unit25>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmEmpresasSeleccion"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="frm_empresasseleccion"/>
-        <EditorIndex Value="3"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:\magoo\lazarus\components\zeos\src\component\ZAbstractRODataset.pas"/>
+        <UnitName Value="ZAbstractRODataset"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="37"/>
-        <CursorPos X="22" Y="54"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
-      </Unit25>
+        <TopLine Value="840"/>
+        <CursorPos X="61" Y="854"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit30>
     </Units>
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="52" Column="31" TopLine="35"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="180" Column="15" TopLine="168"/>
       </Position1>
       <Position2>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="53" Column="31" TopLine="36"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="181" Column="15" TopLine="169"/>
       </Position2>
       <Position3>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="54" Column="31" TopLine="37"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="182" Column="15" TopLine="170"/>
       </Position3>
       <Position4>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="53" Column="31" TopLine="36"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="183" Column="15" TopLine="171"/>
       </Position4>
       <Position5>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="54" Column="31" TopLine="37"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="184" Column="15" TopLine="172"/>
       </Position5>
       <Position6>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="66" Column="25" TopLine="50"/>
+        <Caret Line="185" Column="15" TopLine="173"/>
       </Position6>
       <Position7>
-        <Filename Value="frm_empresaae.pas"/>
-        <Caret Line="65" Column="5" TopLine="55"/>
+        <Filename Value="frm_main.pas"/>
+        <Caret Line="186" Column="15" TopLine="174"/>
       </Position7>
       <Position8>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="162" Column="15" TopLine="141"/>
+        <Caret Line="193" Column="15" TopLine="176"/>
       </Position8>
       <Position9>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="144" Column="2" TopLine="133"/>
+        <Caret Line="63" Column="54" TopLine="49"/>
       </Position9>
       <Position10>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="160" Column="30" TopLine="148"/>
+        <Caret Line="215" Column="8" TopLine="196"/>
       </Position10>
       <Position11>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="169" Column="1" TopLine="148"/>
+        <Caret Line="193" Column="28" TopLine="193"/>
       </Position11>
       <Position12>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="147" Column="37" TopLine="136"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="21" Column="69" TopLine="1"/>
       </Position12>
       <Position13>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="151" Column="36" TopLine="151"/>
+        <Caret Line="206" Column="11" TopLine="195"/>
       </Position13>
       <Position14>
         <Filename Value="frm_main.pas"/>
-        <Caret Line="143" Column="1" TopLine="143"/>
+        <Caret Line="49" Column="1" TopLine="39"/>
       </Position14>
       <Position15>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="151" Column="6" TopLine="151"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="11" Column="62" TopLine="4"/>
       </Position15>
       <Position16>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="146" Column="1" TopLine="135"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="39" Column="55" TopLine="18"/>
       </Position16>
       <Position17>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="148" Column="1" TopLine="135"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="38" Column="6" TopLine="27"/>
       </Position17>
       <Position18>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="149" Column="1" TopLine="135"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="39" Column="6" TopLine="28"/>
       </Position18>
       <Position19>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="150" Column="1" TopLine="135"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="40" Column="6" TopLine="29"/>
       </Position19>
       <Position20>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="54" Column="21" TopLine="34"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="41" Column="6" TopLine="30"/>
       </Position20>
       <Position21>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="55" Column="21" TopLine="35"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="40" Column="6" TopLine="29"/>
       </Position21>
       <Position22>
-        <Filename Value="frm_empresasseleccion.pas"/>
-        <Caret Line="54" Column="21" TopLine="34"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="39" Column="6" TopLine="28"/>
       </Position22>
       <Position23>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="164" Column="22" TopLine="149"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="41" Column="6" TopLine="30"/>
       </Position23>
       <Position24>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="167" Column="24" TopLine="149"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="42" Column="6" TopLine="31"/>
       </Position24>
       <Position25>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="169" Column="24" TopLine="151"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="43" Column="6" TopLine="32"/>
       </Position25>
       <Position26>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="124" Column="1" TopLine="108"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="45" Column="6" TopLine="34"/>
       </Position26>
       <Position27>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="180" Column="15" TopLine="168"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="46" Column="18" TopLine="40"/>
       </Position27>
       <Position28>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="181" Column="15" TopLine="169"/>
+        <Filename Value="frm_ediciontugs.pas"/>
+        <Caret Line="85" Column="1" TopLine="76"/>
       </Position28>
       <Position29>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="180" Column="15" TopLine="168"/>
+        <Filename Value="frm_ediciontugs.pas"/>
+        <Caret Line="60" Column="41" TopLine="49"/>
       </Position29>
       <Position30>
-        <Filename Value="frm_main.pas"/>
-        <Caret Line="181" Column="15" TopLine="169"/>
+        <Filename Value="dmediciontugs.pas"/>
+        <Caret Line="1" Column="1" TopLine="16"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

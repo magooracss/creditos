@@ -1,0 +1,7 @@
+object DM_Afiliados: TDM_Afiliados
+  OldCreateOrder = False
+  Height = 487
+  HorizontalOffset = 604
+  VerticalOffset = 183
+  Width = 628
+end

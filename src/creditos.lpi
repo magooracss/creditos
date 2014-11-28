@@ -19,7 +19,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <BuildNr Value="8"/>
+      <BuildNr Value="9"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" LegalCopyright="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="14">
+    <Units Count="18">
       <Unit0>
         <Filename Value="creditos.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -150,9 +150,42 @@
         <Filename Value="frm_empresasseleccion.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmEmpresasSeleccion"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_empresasseleccion"/>
       </Unit13>
+      <Unit14>
+        <Filename Value="dmediciontugs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_EdicionTUGs"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmediciontugs"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="frm_ediciontugs.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmEdicionTugs"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_ediciontugs"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAfiliadoAE"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_afiliadoae"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="dmafiliados.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM_Afiliados"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="dmafiliados"/>
+      </Unit17>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
