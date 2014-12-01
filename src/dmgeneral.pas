@@ -56,6 +56,7 @@ type
     procedure CambiarEstadoTablas (var elDM: TDataModule; elEstado: boolean);
     procedure ReiniciarTabla (var laTabla: TRxMemoryData);
     procedure LevantarTugsATablas (var elDM: TDataModule);
+    procedure ReiniciarConsulta (var laConsulta: TZQuery);
 
     procedure CargarParametros (var laConsulta: TzQuery; var laTabla: TRxMemoryData);
     procedure GrabarDatos(var BuscarID, Insertar, Modificar: TZQuery; var Datos: TRxMemoryData; campoId: string );
@@ -295,6 +296,15 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TDM_General.ReiniciarConsulta(var laConsulta: TZQuery);
+begin
+   with laConsulta do
+   begin
+     if active then close;
+     Open;
+   end;
 end;
 
 

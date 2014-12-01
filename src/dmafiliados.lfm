@@ -1,7 +1,366 @@
 object DM_Afiliados: TDM_Afiliados
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 487
-  HorizontalOffset = 604
-  VerticalOffset = 183
+  HorizontalOffset = 683
+  VerticalOffset = 179
   Width = 628
+  object DocumentosTipos: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT * '
+      'FROM DOCUMENTOSTIPOS'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 88
+    top = 168
+    object DocumentosTiposID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object DocumentosTiposTIPO: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'TIPO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object DocumentosTiposBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object BuscarAfiliadoDoc: TZQuery
+    Connection = DM_Conexion.cnxBase
+    Active = True
+    SQL.Strings = (
+      'SELECT * '
+      'FROM Afiliados'
+      'WHERE (bVisible = 1)'
+      '            and (documentoTipo_id = :tipo)'
+      '            and (UPPER(TRIM(Documento)) LIKE UPPER(TRIM(:documento)))'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'tipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'documento'
+        ParamType = ptUnknown
+      end>
+    left = 160
+    top = 304
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'tipo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'documento'
+        ParamType = ptUnknown
+      end>
+    object BuscarAfiliadoDocID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object BuscarAfiliadoDocAPELLIDOS: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object BuscarAfiliadoDocNOMBRES: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object BuscarAfiliadoDocDOCUMENTOTIPO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DOCUMENTOTIPO_ID'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object BuscarAfiliadoDocDOCUMENTO: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object BuscarAfiliadoDocCUIT: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object BuscarAfiliadoDocDOMICILIO: TStringField
+      DisplayWidth = 1200
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object BuscarAfiliadoDocLOCALIDAD_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD_ID'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object BuscarAfiliadoDocNOTAS: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTAS'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object BuscarAfiliadoDocBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object Afiliados: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = 0
+        Size = 38
+      end    
+      item
+        Name = 'Apellidos'
+        DataType = ftString
+        Precision = 0
+        Size = 250
+      end    
+      item
+        Name = 'Nombres'
+        DataType = ftString
+        Precision = 0
+        Size = 250
+      end    
+      item
+        Name = 'documentoTipo_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'documento'
+        DataType = ftString
+        Precision = 0
+        Size = 30
+      end    
+      item
+        Name = 'CUIT'
+        DataType = ftString
+        Precision = 0
+        Size = 15
+      end    
+      item
+        Name = 'Domicilio'
+        DataType = ftString
+        Precision = 0
+        Size = 300
+      end    
+      item
+        Name = 'Localidad_id'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'Notas'
+        DataType = ftBlob
+        Precision = 0
+        Size = 0
+      end    
+      item
+        Name = 'bVisible'
+        DataType = ftInteger
+        Precision = 0
+        Size = 0
+      end>
+    AfterInsert = AfiliadosAfterInsert
+    PacketRecords = 0
+    left = 64
+    top = 32
+    object Afiliadosid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object AfiliadosApellidos: TStringField
+      DisplayWidth = 250
+      FieldKind = fkData
+      FieldName = 'Apellidos'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 250
+    end
+    object AfiliadosNombres: TStringField
+      DisplayWidth = 250
+      FieldKind = fkData
+      FieldName = 'Nombres'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 250
+    end
+    object AfiliadosdocumentoTipo_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'documentoTipo_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Afiliadosdocumento: TStringField
+      DisplayWidth = 30
+      FieldKind = fkData
+      FieldName = 'documento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object AfiliadosCUIT: TStringField
+      DisplayWidth = 15
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 15
+    end
+    object AfiliadosDomicilio: TStringField
+      DisplayWidth = 300
+      FieldKind = fkData
+      FieldName = 'Domicilio'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object AfiliadosLocalidad_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Localidad_id'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object AfiliadosNotas: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Notas'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object AfiliadosbVisible: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'bVisible'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
 end

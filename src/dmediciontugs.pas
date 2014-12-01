@@ -51,7 +51,6 @@ type
   private
     { private declarations }
   public
-    procedure Levantartabla (laTabla: string);
     function DevolverTField (elCampo: string): TField;
     procedure EliminarFila;
   end; 

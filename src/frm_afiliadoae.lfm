@@ -13,6 +13,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   Font.Quality = fqDraft
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.2.6.0'
   object GroupBox1: TGroupBox
@@ -24,15 +25,6 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     ClientHeight = 39
     ClientWidth = 260
     TabOrder = 0
-    object DBComboBox1: TDBComboBox
-      Left = 4
-      Height = 24
-      Top = 8
-      Width = 76
-      ItemHeight = 16
-      MaxLength = 0
-      TabOrder = 0
-    end
     object DBEdit1: TDBEdit
       Left = 120
       Height = 24
@@ -40,13 +32,15 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       Width = 136
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 1
+      TabOrder = 0
+      OnExit = DBEdit1Exit
+      OnKeyPress = DBEdit1KeyPress
     end
     object btnTUGTipoDocumento: TSpeedButton
-      Left = 83
+      Left = 85
       Height = 24
       Top = 8
-      Width = 28
+      Width = 29
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -84,6 +78,18 @@ object frmAfiliadoAE: TfrmAfiliadoAE
         FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       OnClick = btnTUGTipoDocumentoClick
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 8
+      Height = 24
+      Top = 8
+      Width = 72
+      KeyField = 'ID'
+      ListField = 'TIPO'
+      ListFieldIndex = 0
+      ListSource = ds_DocumentosTipos
+      LookupCache = False
+      TabOrder = 1
     end
   end
   object Panel1: TPanel
@@ -140,5 +146,10 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       OnClick = btnGrabarSalirClick
       TabOrder = 0
     end
+  end
+  object ds_DocumentosTipos: TDataSource
+    DataSet = DM_Afiliados.DocumentosTipos
+    left = 30
+    top = 114
   end
 end
