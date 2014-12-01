@@ -57,14 +57,23 @@ end;
 procedure TfrmAfiliadoAE.btnTUGTipoDocumentoClick(Sender: TObject);
 var
   pant: TfrmEdicionTugs;
+  laTabla: TTablaTUG;
 begin
   pant:= TfrmEdicionTugs.Create(self);
+
+  laTabla:= TTablaTUG.Create;
+  laTabla.nombre:= 'DOCUMENTOSTIPOS';
+  laTabla.titulo:= 'Tipos de documento';
+  laTabla.AgregarCampo('Tipo', 'Descripción');
+
+  pant.laTUG:= laTabla;
   try
     if pant.ShowModal = mrOK then
     begin
-
+       DM_General.LevantarTugsATablas();
     end;
   finally
+    laTabla.Free;
     pant.Free;
   end;
 end;

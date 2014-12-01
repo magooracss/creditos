@@ -74,8 +74,10 @@ var
   laTabla: TzTable;
 begin
   _laTug:= value;
-  stTitulo.Caption:= 'Edición de la tabla: ' + _laTug.titulo;
-  laTabla:= DM_EdicionTUGs.FindComponent(_laTug.nombre) as tzTable;
+  stTitulo.Caption:= 'Edición de la tabla: ' + value.titulo;
+  laTabla:= DM_EdicionTUGs.FindComponent('tbTabla') as tzTable;
+  laTabla.Close;
+  laTabla.TableName:= value.nombre;
   ds_Resultados.DataSet:= laTabla;
   laTabla.Open;
   ConfigurarGrilla;
