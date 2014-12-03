@@ -45,3 +45,16 @@ BEGIN
 END^
 
 SET TERM ; ^  
+
+
+SET TERM ^ ;
+
+CREATE TRIGGER afiliadoEstadoID FOR afiliadosEstados
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(afiliadoEstadoID,1);
+END^
+
+SET TERM ; ^  

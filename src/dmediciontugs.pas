@@ -46,7 +46,6 @@ type
 
   TDM_EdicionTUGs = class(TDataModule)
     tbTabla: TZTable;
-    procedure DataModuleCreate(Sender: TObject);
     procedure tbTablaAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
@@ -61,12 +60,6 @@ var
 implementation
 
 { TDM_EdicionTUGs }
-{ TODO 1 -oMagoo -cTUGs : No está funcionando para nada la asignación dinámica de tablas TUG }
-procedure TDM_EdicionTUGs.DataModuleCreate(Sender: TObject);
-begin
-
-end;
-
 procedure TDM_EdicionTUGs.tbTablaAfterInsert(DataSet: TDataSet);
 begin
   With Dataset do

@@ -57,7 +57,15 @@ CREATE TABLE AfiliadosEmpresas
     , nroAfiliado       integer default -1
     , legajo            varchar(40)
     , banco_id          integer default 0
+    , estado_id     smallint default 0
     , bVisible      smallint default 1
+);
+
+CREATE TABLE AfiliadosEstados
+(
+     id  integer NOT NULL PRIMARY KEY
+   , estado   varchar(25)
+   , bVisible smallint default 1
 );
 
 CREATE TABLE DocumentosTipos

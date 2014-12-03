@@ -2,6 +2,7 @@ CREATE GENERATOR documentoTipoID;
 CREATE GENERATOR localidadID;
 CREATE GENERATOR reparticionID;
 CREATE GENERATOR bancoID;
+CREATE GENERATOR afiliadoEstadoID;
 
 
 
@@ -9,3 +10,4 @@ SET GENERATOR documentoTipoID TO 0;
 SET GENERATOR localidadID TO 0;
 SET GENERATOR reparticionID TO 0;
 SET GENERATOR bancoID TO 0;
+SET GENERATOR afiliadoEstadoID TO 0;
