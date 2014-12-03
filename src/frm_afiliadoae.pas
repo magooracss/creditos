@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, DbCtrls,
-  StdCtrls, Buttons, ExtCtrls, dmgeneral
+  StdCtrls, Buttons, ExtCtrls, ComCtrls, dmgeneral
   ;
 
 type
@@ -15,12 +15,29 @@ type
 
   TfrmAfiliadoAE = class(TForm)
     btnGrabarSalir: TBitBtn;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBMemo1: TDBMemo;
     ds_DocumentosTipos: TDataSource;
     DBEdit1: TDBEdit;
+    ds_Afiliado: TDataSource;
+    ds_Localidades: TDataSource;
     GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    PCAfiliado: TPageControl;
     Panel1: TPanel;
     btnTUGTipoDocumento: TSpeedButton;
+    SpeedButton1: TSpeedButton;
+    tabEmpresa: TTabSheet;
+    tabNotas: TTabSheet;
     procedure btnGrabarSalirClick(Sender: TObject);
     procedure btnTUGTipoDocumentoClick(Sender: TObject);
     procedure DBEdit1Exit(Sender: TObject);
@@ -28,13 +45,16 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     _idAfiliado: GUID_ID;
+    _idEmpresa: GUID_ID;
     _Nuevo: Boolean; //Bandera para saber si estoy editando o insertando;
 
     procedure ValidarAfiliadoDocumento;
   public
     property idAfiliado: GUID_ID read _idAfiliado write _idAfiliado;
+    property idEmpresa: GUID_ID read _idEmpresa write _idEmpresa;
   end;
 
 var
@@ -46,16 +66,20 @@ uses
   dmafiliados
   ,frm_ediciontugs
   ,dmediciontugs
+  ,frm_afiliadoinfoempresas
   ;
 
 { TfrmAfiliadoAE }
-{ TODO 1 -oMagoo -cAfiliados : Al cargar un documento, controlar que el afiliado no esté cargado en otra empresa. Si lo está, preguntar y traerlo }
+{ TODO 2 -oMagoo -cAfiliado : Agregar información de contacto (Tel, mail, etc) }
 procedure TfrmAfiliadoAE.FormCreate(Sender: TObject);
 begin
   Application.CreateForm(TDM_Afiliados, DM_Afiliados);
   DM_General.ReiniciarConsulta(DM_Afiliados.DocumentosTipos);
+  DM_General.ReiniciarConsulta(DM_Afiliados.Localidades);
+
   _Nuevo:= False;
   _idAfiliado:= GUIDNULO;
+  _idEmpresa:= GUIDNULO;
 end;
 
 procedure TfrmAfiliadoAE.btnGrabarSalirClick(Sender: TObject);
@@ -115,23 +139,56 @@ begin
   end;
 end;
 
-procedure TfrmAfiliadoAE.ValidarAfiliadoDocumento;
+procedure TfrmAfiliadoAE.SpeedButton1Click(Sender: TObject);
+var
+  pant: TfrmEdicionTugs;
+  laTabla: TTablaTUG;
 begin
-  if (_Nuevo)
-   and (DM_Afiliados.BuscarAfiliadoDocumento(
+  pant:= TfrmEdicionTugs.Create(self);
+
+  laTabla:= TTablaTUG.Create;
+  laTabla.nombre:= 'LOCALIDADES';
+  laTabla.titulo:= 'Localidades disponibles';
+  laTabla.AgregarCampo('Localidad', 'Nombre Localidad');
+  laTabla.AgregarCampo('CodigoPostal', 'Codigo Postal');
+
+
+  pant.laTUG:= laTabla;
+  try
+    if pant.ShowModal = mrOK then
+    begin
+       DM_General.ReiniciarConsulta(DM_Afiliados.Localidades);
+    end;
+  finally
+    laTabla.Free;
+    pant.Free;
+  end;
+end;
+
+procedure TfrmAfiliadoAE.ValidarAfiliadoDocumento;
+var
+ pantInfo: TfrmAfiliadoInfoEmpresas;
+begin
+  try
+    pantInfo:= TfrmAfiliadoInfoEmpresas.Create(self);
+    if (_Nuevo)
+      and (DM_Afiliados.BuscarAfiliadoDocumento(
             DM_Afiliados.AfiliadosdocumentoTipo_id.asInteger
            ,DM_Afiliados.Afiliadosdocumento.asString
                                             )
-         <> GUIDNULO
-       ) then
-  begin
-    if (MessageDlg ('ATENCION'
-               , 'Ya existe un afiliado cargado en la BD. Traigo los datos a Pantalla?'
-               , mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
-     begin
-      { TODO 1 -oMagoo -cAfiliados : Crear el código para traer un afiliado ya cargado de la base de datos a la pantalla de carga
- }
-     end;
+           <> GUIDNULO
+           ) then
+    begin
+      if (pantInfo.ShowModal = mrOK) then
+      begin
+        if (NOT DM_Afiliados.ExisteAfiliadoEmpresa(idAfiliado, idEmpresa)) then
+          DM_Afiliados.CargarInfoAfiliadoPorEmpresa(idAfiliado,pantInfo.EmpresaSeleccionada ,idEmpresa )
+        else
+          ShowMessage ('El afiliado ya está cargado en esta empresa');
+      end;
+    end;
+  finally
+    pantInfo.Free;
   end;
 end;
 

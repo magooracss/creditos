@@ -12,7 +12,7 @@ uses
   ,sysutils, dmseguridad, frm_login, controls, frm_usuarioslistado, 
 frm_usuarioae, frm_empresaslistado, dmempresas, frm_empresaae,
 frm_empresasseleccion, dmediciontugs, frm_ediciontugs, frm_afiliadoae,
-dmafiliados
+dmafiliados, frm_afiliadoinfoempresas
   ;
 
 {$R *.res}
@@ -32,7 +32,7 @@ begin
   Application.CreateForm(TDM_Conexion, DM_Conexion);
   Application.CreateForm(TDM_General, DM_General);
   Application.CreateForm(TDM_Seguridad, DM_Seguridad);
-  Application.CreateForm(Tdm_empresas, dm_empresas);
+  Application.CreateForm(TDM_Empresas, DM_Empresas);
 
 
   frmLogin := TfrmLogin.Create(nil);

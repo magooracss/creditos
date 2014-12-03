@@ -58,6 +58,8 @@ CREATE TABLE AfiliadosEmpresas
     , legajo            varchar(40)
     , banco_id          integer default 0
     , estado_id     smallint default 0
+    , fAlta         date
+    , fBaja         date
     , bVisible      smallint default 1
 );
 

@@ -204,6 +204,7 @@ begin
    pant:= TfrmAfiliadoAE.Create(self);
    try
      pant.idAfiliado:= idAfiliado;
+     pant.idEmpresa:= idEmpresaActual;
      pant.ShowModal;
    finally
      pant.Free;

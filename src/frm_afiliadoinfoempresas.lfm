@@ -1,0 +1,241 @@
+object frmAfiliadoInfoEmpresas: TfrmAfiliadoInfoEmpresas
+  Left = 341
+  Height = 420
+  Top = 236
+  Width = 870
+  Caption = 'Información crediticia afiliado'
+  ClientHeight = 420
+  ClientWidth = 870
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Arial'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '1.2.6.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 58
+    Top = 362
+    Width = 870
+    Align = alBottom
+    ClientHeight = 58
+    ClientWidth = 870
+    TabOrder = 0
+    object btnSalir: TBitBtn
+      Left = 22
+      Height = 40
+      Top = 8
+      Width = 163
+      Caption = 'Salir'
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF001D63
+        9B1619609839145D9562105A92880D5890A4135C92FC0C578FED999999FF7171
+        71FF545454FF515151FF4F4F4FFF4C4C4CFF4A4A4AFF474747FF454545FF2567
+        9DFF3274A8FF3D7CAFFF4784B5FF4E8ABAFF3E7EADFF0C578FEAFFFFFF00FFFF
+        FF00585858FFA2A2A2FFA2A2A2FFA3A3A3FFA4A4A4FFA4A4A4FFA5A5A5FF2F6F
+        A5FF78ABD2FF78ABD3FF73A7D1FF69A0CDFF407FAEFF0F5991EAFFFFFF00FFFF
+        FF005C5C5CFFA0A0A0FF3C7340FFA2A2A2FFA3A3A3FFA3A3A3FFA4A4A4FF3674
+        AAFF7DAFD4FF5B9AC9FF5495C7FF5896C8FF4180AEFF135C94EAFFFFFF00FFFF
+        FF00606060FF3A773FFF3D7641FFA1A1A1FFA2A2A2FFA2A2A2FFA3A3A3FF3D79
+        B0FF82B3D7FF629FCCFF5A9AC9FF5E9BCAFF4381AFFF196098EAFFFFFF00FFFF
+        FF0039763EFF4D9554FF499150FF286E2DFF266A2AFF236627FF216325FF457E
+        B4FF88B7D9FF67A3CFFF619ECCFF639FCCFF4583B1FF1F649CEAFFFFFF003883
+        3FD4569D5DFF80C688FF7BC383FF77C17FFF72BE79FF6FBC75FF246728FF4C84
+        BAFF8DBBDBFF6EA8D1FF66A6D1FF5FB4DFFF4785B1FF2569A1EA3E8B46A15EA5
+        66FF8BCC94FF7DC586FF73C07CFF6EBD77FF69BB71FF75BF7CFF276C2CFF5489
+        BFFF94BFDDFF75ADD4FF63B8E1FF4BD4FFFF428BB8FF2C6EA6EAFFFFFF003F8C
+        47D25FA667FF8DCD96FF89CB92FF84C88DFF80C688FF7BC383FF2A7030FF5A8E
+        C4FF98C3E0FF7CB3D7FF74AFD6FF5EC4EDFF4B88B3FF3473ABEAFFFFFF00FFFF
+        FF0047894FFF60A769FF5DA465FF37823EFF347E3BFF317937FF2E7534FF6092
+        C9FF9EC7E2FF83B8DAFF7DB4D7FF7EB3D7FF4F89B4FF3B79B1EAFFFFFF00FFFF
+        FF00777777FF4D9054FF3D8A45FF9B9B9BFF9C9C9CFF9D9D9DFF9D9D9DFF6696
+        CCFFA2CBE3FF89BDDCFF83B9DAFF84B9DAFF518BB5FF437EB6EAFFFFFF00FFFF
+        FF007A7A7AFF989998FF529159FF9A9A9AFF9B9B9BFF9C9C9CFF9C9C9CFF6C9A
+        D0FFA7CEE5FF8FC1DFFF89BDDCFF8BBDDCFF538DB6FF4B84BCEAFFFFFF00FFFF
+        FF007D7D7DFF999999FF999999FF9A9A9AFF9A9A9AFF9B9B9BFF9B9B9BFF6F9D
+        D3FFAAD1E7FFABD1E7FF98C7E1FF91C2DEFF568FB7FF5289C1EAFFFFFF00FFFF
+        FF00808080FF7E7E7EFF7C7C7CFF7A7A7AFF777777FF757575FF727272FF719E
+        D4FF6F9ED6FF87B2DCFFABD3E8FFA9D0E6FF5890B8FF598EC6EAFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00709ED6DB6D9CD4FF85B1DAFF5A91B9FF6093CBEAFFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+        FF00FFFFFF00FFFFFF00FFFFFF006D9CD4896A9AD2FB6697CFEE
+      }
+      OnClick = btnSalirClick
+      TabOrder = 0
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 88
+    Top = 0
+    Width = 870
+    Align = alTop
+    ClientHeight = 88
+    ClientWidth = 870
+    TabOrder = 1
+    object DBText1: TDBText
+      Left = 13
+      Height = 19
+      Top = 10
+      Width = 65
+      DataField = 'Apellidos'
+      DataSource = dsAfiliado
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText2: TDBText
+      Left = 13
+      Height = 19
+      Top = 32
+      Width = 65
+      DataField = 'Nombres'
+      DataSource = dsAfiliado
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText3: TDBText
+      Left = 13
+      Height = 19
+      Top = 56
+      Width = 65
+      DataField = 'lxTipoDocumento'
+      DataSource = dsAfiliado
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText4: TDBText
+      Left = 88
+      Height = 19
+      Top = 56
+      Width = 65
+      DataField = 'documento'
+      DataSource = dsAfiliado
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object DBText5: TDBText
+      Left = 240
+      Height = 19
+      Top = 56
+      Width = 65
+      DataField = 'CUIT'
+      DataSource = dsAfiliado
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 196
+      Height = 19
+      Top = 56
+      Width = 42
+      Caption = 'CUIT:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 274
+    Top = 88
+    Width = 870
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Afiliado'
+        Width = 120
+        FieldName = 'nroAfiliado'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Empresa'
+        Width = 253
+        FieldName = 'lxEmpresa'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Alta'
+        Width = 120
+        FieldName = 'fAlta'
+        DisplayFormat = 'dd/mm/yyyy'
+      end    
+      item
+        SizePriority = 0
+        Title.Alignment = taCenter
+        Title.Caption = 'Estado'
+        Width = 120
+        FieldName = 'lxEstadoAfiliado'
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Repartición'
+        Width = 253
+        FieldName = 'lxReparticion'
+      end>
+    DataSource = dsAfiliadoEmpresas
+    FixedCols = 0
+    Options = [dgTitles, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
+    TabOrder = 2
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Arial'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+  end
+  object dsAfiliado: TDataSource
+    DataSet = DM_Afiliados.Afiliados
+    left = 384
+    top = 88
+  end
+  object dsAfiliadoEmpresas: TDataSource
+    DataSet = DM_Afiliados.AfiliadosEmpresas
+    left = 464
+    top = 88
+  end
+end

@@ -11,9 +11,9 @@ uses
 
 type
 
-  { Tdm_empresas }
+  { TDM_Empresas }
 
-  Tdm_empresas = class(TDataModule)
+  TDM_Empresas = class(TDataModule)
     Empresas: TRxMemoryData;
     EmpresasbVisible: TLongintField;
     EmpresascodigoBancos: TStringField;
@@ -39,16 +39,26 @@ type
     EmpresasINS: TZQuery;
     EmpresasSEL: TZQuery;
     qTodasLasEmpresasBVISIBLE: TSmallintField;
+    qTodasLasEmpresasBVISIBLE1: TSmallintField;
     qTodasLasEmpresasCODIGOBANCOS: TStringField;
+    qTodasLasEmpresasCODIGOBANCOS1: TStringField;
     qTodasLasEmpresasCODIGOBAPRO: TStringField;
+    qTodasLasEmpresasCODIGOBAPRO1: TStringField;
     qTodasLasEmpresasCUIT: TStringField;
+    qTodasLasEmpresasCUIT1: TStringField;
     qTodasLasEmpresasDOMICILIO: TStringField;
+    qTodasLasEmpresasDOMICILIO1: TStringField;
     qTodasLasEmpresasID: TStringField;
+    qTodasLasEmpresasID1: TStringField;
     qTodasLasEmpresasLOGO: TBlobField;
+    qTodasLasEmpresasLOGO1: TBlobField;
     qTodasLasEmpresasPERSONACONTACTO: TStringField;
+    qTodasLasEmpresasPERSONACONTACTO1: TStringField;
     qTodasLasEmpresasRAZONSOCIAL: TStringField;
+    qTodasLasEmpresasRAZONSOCIAL1: TStringField;
     qTodasLasEmpresasTELEFONO: TStringField;
     EmpresasUPD: TZQuery;
+    qTodasLasEmpresasTELEFONO1: TStringField;
     procedure EmpresasAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
@@ -65,15 +75,15 @@ type
   end;
 
 var
-  dm_empresas: Tdm_empresas;
+  DM_Empresas: TDM_Empresas;
 
 implementation
 
 {$R *.lfm}
 
-{ Tdm_empresas }
+{ TDM_Empresas }
 
-procedure Tdm_empresas.EmpresasAfterInsert(DataSet: TDataSet);
+procedure TDM_Empresas.EmpresasAfterInsert(DataSet: TDataSet);
 begin
   Empresasid.asString:= DM_General.CrearGUID;
   EmpresasrazonSocial.asString:= EmptyStr;
@@ -86,14 +96,14 @@ begin
   EmpresasbVisible.AsInteger:= 1;
 end;
 
-function Tdm_empresas.Nuevo: GUID_ID ;
+function TDM_Empresas.Nuevo: GUID_ID ;
 begin
   DM_General.ReiniciarTabla(Empresas);
   Empresas.Insert;
   Result:= Empresasid.AsString;
 end;
 
-procedure Tdm_empresas.Editar(idEmpresa: GUID_ID);
+procedure TDM_Empresas.Editar(idEmpresa: GUID_ID);
 begin
   DM_General.ReiniciarTabla(Empresas);
   with EmpresasSEL do
@@ -106,12 +116,12 @@ begin
   end;
 end;
 
-procedure Tdm_empresas.CargarLogo(rutaImg: String);
+procedure TDM_Empresas.CargarLogo(rutaImg: String);
 begin
   Empresaslogo.LoadFromFile(rutaImg);
 end;
 
-procedure Tdm_empresas.TodasLasEmpresas;
+procedure TDM_Empresas.TodasLasEmpresas;
 begin
   DM_General.ReiniciarTabla(Empresas);
   with qTodasLasEmpresas do
@@ -123,7 +133,7 @@ begin
   end;
 end;
 
-procedure Tdm_empresas.MostrarLogo(var img: TImage);
+procedure TDM_Empresas.MostrarLogo(var img: TImage);
 var
   elStream: TMemoryStream;
 begin
@@ -142,7 +152,7 @@ begin
   end;
 end;
 
-procedure Tdm_empresas.EliminarEmpresa(idEmpresa: GUID_ID);
+procedure TDM_Empresas.EliminarEmpresa(idEmpresa: GUID_ID);
 begin
   Editar(idEmpresa);
   with Empresas do
@@ -153,7 +163,7 @@ begin
   GrabarEmpresa;
 end;
 
-procedure Tdm_empresas.GrabarEmpresa;
+procedure TDM_Empresas.GrabarEmpresa;
 begin
   DM_General.GrabarDatos(EmpresasSEL, EmpresasINS, EmpresasUPD, Empresas, 'id');
 end;

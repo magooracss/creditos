@@ -1,10 +1,10 @@
 object frmAfiliadoAE: TfrmAfiliadoAE
-  Left = 312
-  Height = 560
-  Top = 117
+  Left = 305
+  Height = 634
+  Top = 37
   Width = 740
   Caption = 'Afiliado'
-  ClientHeight = 560
+  ClientHeight = 634
   ClientWidth = 740
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -95,7 +95,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 510
+    Top = 584
     Width = 740
     Align = alBottom
     ClientHeight = 50
@@ -147,9 +147,193 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       TabOrder = 0
     end
   end
+  object DBEdit2: TDBEdit
+    Left = 16
+    Height = 24
+    Top = 120
+    Width = 712
+    DataField = 'Apellidos'
+    DataSource = ds_Afiliado
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 2
+  end
+  object DBEdit3: TDBEdit
+    Left = 16
+    Height = 24
+    Top = 169
+    Width = 712
+    DataField = 'Nombres'
+    DataSource = ds_Afiliado
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 3
+  end
+  object PCAfiliado: TPageControl
+    Left = 0
+    Height = 272
+    Top = 312
+    Width = 740
+    ActivePage = tabEmpresa
+    Align = alBottom
+    TabIndex = 0
+    TabOrder = 4
+    object tabEmpresa: TTabSheet
+      Caption = 'Empresa'
+    end
+    object tabNotas: TTabSheet
+      Caption = 'Notas'
+      ClientHeight = 235
+      ClientWidth = 732
+      object DBMemo1: TDBMemo
+        Left = 0
+        Height = 235
+        Top = 0
+        Width = 732
+        Align = alClient
+        DataField = 'Notas'
+        DataSource = ds_Afiliado
+        TabOrder = 0
+      end
+    end
+  end
+  object DBEdit4: TDBEdit
+    Left = 16
+    Height = 24
+    Top = 220
+    Width = 712
+    DataField = 'Domicilio'
+    DataSource = ds_Afiliado
+    Anchors = [akTop, akLeft, akRight]
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 5
+  end
+  object GroupBox2: TGroupBox
+    Left = 480
+    Height = 57
+    Top = 32
+    Width = 185
+    Caption = 'CUIT'
+    ClientHeight = 39
+    ClientWidth = 181
+    TabOrder = 6
+    object DBEdit5: TDBEdit
+      Left = 16
+      Height = 24
+      Top = 8
+      Width = 152
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 0
+    end
+  end
+  object Label1: TLabel
+    Left = 16
+    Height = 16
+    Top = 102
+    Width = 53
+    Caption = 'Apellidos'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 16
+    Top = 151
+    Width = 52
+    Caption = 'Nombres'
+    ParentColor = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 16
+    Top = 202
+    Width = 53
+    Caption = 'Domicilio'
+    ParentColor = False
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 16
+    Height = 24
+    Top = 269
+    Width = 672
+    Anchors = [akTop, akLeft, akRight]
+    DataField = 'Localidad_id'
+    DataSource = ds_Afiliado
+    KeyField = 'ID'
+    ListField = 'LOCALIDAD'
+    ListFieldIndex = 0
+    ListSource = ds_Localidades
+    LookupCache = False
+    Style = csDropDownList
+    TabOrder = 7
+  end
+  object SpeedButton1: TSpeedButton
+    Left = 696
+    Height = 26
+    Top = 269
+    Width = 31
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+      72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+      65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+      75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+      C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+      7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+      EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+      7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+      F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+      82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+      F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+      87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+      FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+      8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+      EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+      8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+      BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+      94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+      ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+      98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+      A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+      9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+      9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+      89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+      A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+      F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+      A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+      8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = SpeedButton1Click
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 16
+    Top = 251
+    Width = 55
+    Caption = 'Localidad'
+    ParentColor = False
+  end
   object ds_DocumentosTipos: TDataSource
     DataSet = DM_Afiliados.DocumentosTipos
-    left = 30
-    top = 114
+    left = 240
+    top = 16
+  end
+  object ds_Afiliado: TDataSource
+    DataSet = DM_Afiliados.Afiliados
+    left = 104
+    top = 8
+  end
+  object ds_Localidades: TDataSource
+    DataSet = DM_Afiliados.Localidades
+    left = 336
+    top = 16
   end
 end

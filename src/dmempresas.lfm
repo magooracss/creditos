@@ -1,4 +1,4 @@
-object dm_empresas: Tdm_empresas
+object DM_Empresas: TDM_Empresas
   OldCreateOrder = False
   Height = 380
   HorizontalOffset = 454

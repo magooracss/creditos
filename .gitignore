@@ -1,0 +1,7 @@
+**/exe
+**/old
+**/db
+**/src/backup
+**/src/lib
+*.*~*
+*.exe
