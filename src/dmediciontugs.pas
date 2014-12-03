@@ -46,6 +46,7 @@ type
 
   TDM_EdicionTUGs = class(TDataModule)
     tbTabla: TZTable;
+    procedure DataModuleCreate(Sender: TObject);
     procedure tbTablaAfterInsert(DataSet: TDataSet);
   private
     { private declarations }
@@ -59,6 +60,11 @@ var
 
 implementation
 
+procedure TDM_EdicionTUGs.DataModuleCreate(Sender: TObject);
+begin
+
+end;
+
 { TDM_EdicionTUGs }
 procedure TDM_EdicionTUGs.tbTablaAfterInsert(DataSet: TDataSet);
 begin
@@ -68,6 +74,7 @@ begin
     FieldByName('bVisible').asInteger:= 1;
   end;
 end;
+
 
 function TDM_EdicionTUGs.DevolverTField(elCampo: string): TField;
 begin
