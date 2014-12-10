@@ -3,6 +3,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   Height = 634
   Top = 37
   Width = 740
+  ActiveControl = DBLookupComboBox1
   Caption = 'Afiliado'
   ClientHeight = 634
   ClientWidth = 740
@@ -30,9 +31,11 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       Height = 24
       Top = 8
       Width = 136
+      DataField = 'documento'
+      DataSource = ds_Afiliado
       CharCase = ecNormal
       MaxLength = 0
-      TabOrder = 0
+      TabOrder = 1
       OnExit = DBEdit1Exit
       OnKeyPress = DBEdit1KeyPress
     end
@@ -84,12 +87,15 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       Height = 24
       Top = 8
       Width = 72
+      DataField = 'documentoTipo_id'
+      DataSource = ds_Afiliado
       KeyField = 'ID'
       ListField = 'TIPO'
       ListFieldIndex = 0
       ListSource = ds_DocumentosTipos
       LookupCache = False
-      TabOrder = 1
+      Style = csDropDownList
+      TabOrder = 0
     end
   end
   object Panel1: TPanel
@@ -100,7 +106,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     Align = alBottom
     ClientHeight = 50
     ClientWidth = 740
-    TabOrder = 1
+    TabOrder = 7
     object btnGrabarSalir: TBitBtn
       Left = 16
       Height = 30
@@ -179,7 +185,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     ActivePage = tabEmpresa
     Align = alBottom
     TabIndex = 0
-    TabOrder = 4
+    TabOrder = 6
     object tabEmpresa: TTabSheet
       Caption = 'Empresa'
     end
@@ -209,7 +215,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     Anchors = [akTop, akLeft, akRight]
     CharCase = ecNormal
     MaxLength = 0
-    TabOrder = 5
+    TabOrder = 4
   end
   object GroupBox2: TGroupBox
     Left = 480
@@ -219,12 +225,14 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     Caption = 'CUIT'
     ClientHeight = 39
     ClientWidth = 181
-    TabOrder = 6
+    TabOrder = 1
     object DBEdit5: TDBEdit
       Left = 16
       Height = 24
       Top = 8
       Width = 152
+      DataField = 'CUIT'
+      DataSource = ds_Afiliado
       CharCase = ecNormal
       MaxLength = 0
       TabOrder = 0
@@ -268,7 +276,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     ListSource = ds_Localidades
     LookupCache = False
     Style = csDropDownList
-    TabOrder = 7
+    TabOrder = 5
   end
   object SpeedButton1: TSpeedButton
     Left = 696

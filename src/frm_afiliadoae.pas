@@ -60,6 +60,9 @@ type
 var
   frmAfiliadoAE: TfrmAfiliadoAE;
 
+{ TODO 1 -oMagoo -cAfiliados : No vincula el afiliado con la Empresa actual }
+{ TODO 1 -oMagoo -cAfiliado : Si el afiliado existe, despliega la pantalla, pero no trae datos del afiliado }
+
 implementation
 {$R *.lfm}
 uses
@@ -84,6 +87,7 @@ end;
 
 procedure TfrmAfiliadoAE.btnGrabarSalirClick(Sender: TObject);
 begin
+  DM_Afiliados.Grabar;
   ModalResult:= mrOK;
 end;
 
@@ -129,13 +133,19 @@ end;
 
 procedure TfrmAfiliadoAE.FormShow(Sender: TObject);
 begin
+
+  DM_Afiliados.idEmpresaActual:= _idEmpresa;
+  DM_Afiliados.idAfiliadoActual:= _idAfiliado;
+
   if _idAfiliado = GUIDNULO then
   begin
      _Nuevo := True;
+     _idAfiliado:= DM_Afiliados.Nuevo;
   end
   else
   begin
      _Nuevo:= False;
+     DM_Afiliados.Editar(_idAfiliado);
   end;
 end;
 
