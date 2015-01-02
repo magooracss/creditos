@@ -12,7 +12,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="10"/>
         <CursorPos X="22" Y="15"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit0>
       <Unit1>
         <Filename Value="frm_main.pas"/>
@@ -25,7 +25,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="182"/>
         <CursorPos X="40" Y="205"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -40,7 +40,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="292"/>
         <CursorPos X="11" Y="306"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -48,7 +48,7 @@
         <Filename Value="versioninfo.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="versioninfo"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit3>
       <Unit4>
         <Filename Value="dmconexion.pas"/>
@@ -60,7 +60,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="34"/>
         <CursorPos X="3" Y="45"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit4>
       <Unit5>
         <Filename Value="SD_Configuracion.pas"/>
@@ -69,7 +69,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="4"/>
         <CursorPos X="58" Y="20"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit5>
       <Unit6>
         <Filename Value="dmseguridad.pas"/>
@@ -82,7 +82,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="107"/>
         <CursorPos X="1" Y="118"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -94,7 +94,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="51"/>
         <CursorPos X="18" Y="47"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit7>
       <Unit8>
         <Filename Value="frm_usuarioslistado.pas"/>
@@ -106,7 +106,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="48"/>
         <CursorPos X="34" Y="63"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit8>
       <Unit9>
         <Filename Value="frm_usuarioae.pas"/>
@@ -118,7 +118,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="38"/>
         <CursorPos X="1" Y="46"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
       </Unit9>
       <Unit10>
         <Filename Value="frm_empresaslistado.pas"/>
@@ -130,7 +130,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="70"/>
         <CursorPos X="1" Y="84"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
       </Unit10>
       <Unit11>
         <Filename Value="dmempresas.pas"/>
@@ -143,7 +143,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="40"/>
         <CursorPos X="5" Y="74"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit11>
@@ -157,7 +157,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="29"/>
         <CursorPos X="1" Y="39"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
       </Unit12>
       <Unit13>
         <Filename Value="frm_empresasseleccion.pas"/>
@@ -169,7 +169,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="37"/>
         <CursorPos X="22" Y="54"/>
-        <UsageCount Value="35"/>
+        <UsageCount Value="36"/>
       </Unit13>
       <Unit14>
         <Filename Value="dmediciontugs.pas"/>
@@ -182,7 +182,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="66"/>
         <CursorPos X="24" Y="87"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit14>
@@ -197,7 +197,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="15"/>
         <CursorPos X="30" Y="51"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
       </Unit15>
       <Unit16>
@@ -210,9 +210,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="50"/>
-        <CursorPos X="44" Y="73"/>
-        <UsageCount Value="34"/>
+        <TopLine Value="173"/>
+        <CursorPos X="38" Y="191"/>
+        <UsageCount Value="35"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit16>
@@ -225,9 +225,9 @@
         <UnitName Value="dmafiliados"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="33"/>
+        <TopLine Value="204"/>
+        <CursorPos X="1" Y="210"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit17>
@@ -240,9 +240,9 @@
         <UnitName Value="frm_afiliadoinfoempresas"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="48"/>
-        <CursorPos X="63" Y="75"/>
-        <UsageCount Value="30"/>
+        <TopLine Value="18"/>
+        <CursorPos X="3" Y="17"/>
+        <UsageCount Value="31"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit18>
@@ -370,124 +370,124 @@
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="309" Column="4" TopLine="284"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="193" Column="1" TopLine="174"/>
       </Position1>
       <Position2>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="308" Column="4" TopLine="283"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="185" Column="1" TopLine="174"/>
       </Position2>
       <Position3>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="307" Column="4" TopLine="282"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="186" Column="1" TopLine="174"/>
       </Position3>
       <Position4>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="306" Column="4" TopLine="281"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="188" Column="1" TopLine="174"/>
       </Position4>
       <Position5>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="305" Column="4" TopLine="280"/>
+        <Caret Line="210" Column="1" TopLine="204"/>
       </Position5>
       <Position6>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="304" Column="4" TopLine="279"/>
+        <Caret Line="212" Column="1" TopLine="204"/>
       </Position6>
       <Position7>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="303" Column="4" TopLine="278"/>
+        <Caret Line="213" Column="1" TopLine="204"/>
       </Position7>
       <Position8>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="302" Column="4" TopLine="277"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="189" Column="40" TopLine="174"/>
       </Position8>
       <Position9>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="303" Column="4" TopLine="278"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="182" Column="55" TopLine="173"/>
       </Position9>
       <Position10>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="304" Column="4" TopLine="279"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="185" Column="1" TopLine="173"/>
       </Position10>
       <Position11>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="305" Column="4" TopLine="280"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="186" Column="1" TopLine="173"/>
       </Position11>
       <Position12>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="306" Column="4" TopLine="281"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="188" Column="1" TopLine="173"/>
       </Position12>
       <Position13>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="307" Column="4" TopLine="282"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="190" Column="1" TopLine="173"/>
       </Position13>
       <Position14>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="308" Column="4" TopLine="283"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="189" Column="1" TopLine="173"/>
       </Position14>
       <Position15>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="309" Column="4" TopLine="284"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="190" Column="1" TopLine="173"/>
       </Position15>
       <Position16>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="310" Column="4" TopLine="285"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="189" Column="69" TopLine="173"/>
       </Position16>
       <Position17>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="311" Column="4" TopLine="286"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="185" Column="1" TopLine="173"/>
       </Position17>
       <Position18>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="312" Column="4" TopLine="287"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="186" Column="1" TopLine="173"/>
       </Position18>
       <Position19>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="313" Column="4" TopLine="288"/>
+        <Caret Line="210" Column="1" TopLine="204"/>
       </Position19>
       <Position20>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="312" Column="4" TopLine="287"/>
+        <Caret Line="212" Column="1" TopLine="204"/>
       </Position20>
       <Position21>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="311" Column="1" TopLine="288"/>
+        <Caret Line="213" Column="1" TopLine="204"/>
       </Position21>
       <Position22>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="248" Column="3" TopLine="246"/>
+        <Caret Line="214" Column="1" TopLine="204"/>
       </Position22>
       <Position23>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="260" Column="20" TopLine="242"/>
+        <Caret Line="215" Column="1" TopLine="204"/>
       </Position23>
       <Position24>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="259" Column="20" TopLine="241"/>
+        <Caret Line="216" Column="1" TopLine="204"/>
       </Position24>
       <Position25>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="279" Column="17" TopLine="277"/>
+        <Caret Line="217" Column="1" TopLine="204"/>
       </Position25>
       <Position26>
         <Filename Value="frm_afiliadoae.pas"/>
-        <Caret Line="135" Column="1" TopLine="109"/>
+        <Caret Line="186" Column="1" TopLine="173"/>
       </Position26>
       <Position27>
         <Filename Value="frm_afiliadoae.pas"/>
-        <Caret Line="136" Column="1" TopLine="110"/>
+        <Caret Line="193" Column="1" TopLine="173"/>
       </Position27>
       <Position28>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="233" Column="17" TopLine="210"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="195" Column="1" TopLine="173"/>
       </Position28>
       <Position29>
-        <Filename Value="dmafiliados.pas"/>
-        <Caret Line="338" Column="21" TopLine="309"/>
+        <Filename Value="frm_afiliadoae.pas"/>
+        <Caret Line="196" Column="1" TopLine="173"/>
       </Position29>
       <Position30>
         <Filename Value="dmafiliados.pas"/>
-        <Caret Line="282" Column="58" TopLine="280"/>
+        <Caret Line="210" Column="1" TopLine="204"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

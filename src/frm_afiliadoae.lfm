@@ -3,7 +3,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   Height = 634
   Top = 37
   Width = 740
-  ActiveControl = DBLookupComboBox1
+  ActiveControl = dbDocTipo
   Caption = 'Afiliado'
   ClientHeight = 634
   ClientWidth = 740
@@ -26,7 +26,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     ClientHeight = 39
     ClientWidth = 260
     TabOrder = 0
-    object DBEdit1: TDBEdit
+    object dbDocNro: TDBEdit
       Left = 120
       Height = 24
       Top = 8
@@ -36,8 +36,8 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       CharCase = ecNormal
       MaxLength = 0
       TabOrder = 1
-      OnExit = DBEdit1Exit
-      OnKeyPress = DBEdit1KeyPress
+      OnExit = dbDocNroExit
+      OnKeyPress = dbDocNroKeyPress
     end
     object btnTUGTipoDocumento: TSpeedButton
       Left = 85
@@ -82,7 +82,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
       }
       OnClick = btnTUGTipoDocumentoClick
     end
-    object DBLookupComboBox1: TDBLookupComboBox
+    object dbDocTipo: TDBLookupComboBox
       Left = 8
       Height = 24
       Top = 8

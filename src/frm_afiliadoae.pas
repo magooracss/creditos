@@ -19,11 +19,11 @@ type
     DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
+    dbDocTipo: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
     DBMemo1: TDBMemo;
     ds_DocumentosTipos: TDataSource;
-    DBEdit1: TDBEdit;
+    dbDocNro: TDBEdit;
     ds_Afiliado: TDataSource;
     ds_Localidades: TDataSource;
     GroupBox1: TGroupBox;
@@ -40,8 +40,8 @@ type
     tabNotas: TTabSheet;
     procedure btnGrabarSalirClick(Sender: TObject);
     procedure btnTUGTipoDocumentoClick(Sender: TObject);
-    procedure DBEdit1Exit(Sender: TObject);
-    procedure DBEdit1KeyPress(Sender: TObject; var Key: char);
+    procedure dbDocNroExit(Sender: TObject);
+    procedure dbDocNroKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -61,7 +61,7 @@ var
   frmAfiliadoAE: TfrmAfiliadoAE;
 
 { TODO 1 -oMagoo -cAfiliados : No vincula el afiliado con la Empresa actual }
-{ TODO 1 -oMagoo -cAfiliado : Si el afiliado existe, despliega la pantalla, pero no trae datos del afiliado }
+{ TODO 1 -oMagoo -cAfiliado : Si el afiliado existe, despliega la pantalla, pero no trae datos de las empresas }
 
 implementation
 {$R *.lfm}
@@ -115,12 +115,12 @@ begin
   end;
 end;
 
-procedure TfrmAfiliadoAE.DBEdit1Exit(Sender: TObject);
+procedure TfrmAfiliadoAE.dbDocNroExit(Sender: TObject);
 begin
   ValidarAfiliadoDocumento;
 end;
 
-procedure TfrmAfiliadoAE.DBEdit1KeyPress(Sender: TObject; var Key: char);
+procedure TfrmAfiliadoAE.dbDocNroKeyPress(Sender: TObject; var Key: char);
 begin
   if key = #13 then
     ValidarAfiliadoDocumento;
@@ -178,17 +178,21 @@ end;
 procedure TfrmAfiliadoAE.ValidarAfiliadoDocumento;
 var
  pantInfo: TfrmAfiliadoInfoEmpresas;
+ elAfiliado: GUID_ID;
 begin
   try
+    elAfiliado:= GUIDNULO;
     pantInfo:= TfrmAfiliadoInfoEmpresas.Create(self);
-    if (_Nuevo)
-      and (DM_Afiliados.BuscarAfiliadoDocumento(
-            DM_Afiliados.AfiliadosdocumentoTipo_id.asInteger
-           ,DM_Afiliados.Afiliadosdocumento.asString
-                                            )
-           <> GUIDNULO
-           ) then
+    if (_Nuevo) then
     begin
+      elAfiliado:= DM_Afiliados.BuscarAfiliadoDocumento(
+            dbDocTipo.ListSource.DataSet.FieldByName('id').asInteger
+           ,dbDocNro.Text);
+    end;
+
+    if (elAfiliado <> GUIDNULO) then
+    begin
+      pantInfo.idAfiliado:= elAfiliado;
       if (pantInfo.ShowModal = mrOK) then
       begin
         if (NOT DM_Afiliados.ExisteAfiliadoEmpresa(idAfiliado, idEmpresa)) then
@@ -196,6 +200,7 @@ begin
         else
           ShowMessage ('El afiliado ya está cargado en esta empresa');
       end;
+
     end;
   finally
     pantInfo.Free;
