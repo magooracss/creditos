@@ -5,8 +5,8 @@ unit frm_afiliadoae;
 interface
 
 uses
-  Classes, SysUtils, db, FileUtil, Forms, Controls, Graphics, Dialogs, DbCtrls,
-  StdCtrls, Buttons, ExtCtrls, ComCtrls, dmgeneral
+  Classes, SysUtils, db, FileUtil, dbdateedit, Forms, Controls, Graphics,
+  Dialogs, DbCtrls, StdCtrls, Buttons, ExtCtrls, ComCtrls, dmgeneral
   ;
 
 type
@@ -15,13 +15,25 @@ type
 
   TfrmAfiliadoAE = class(TForm)
     btnGrabarSalir: TBitBtn;
+    DBDateEdit1: TDBDateEdit;
+    DBDateEdit2: TDBDateEdit;
+    DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     dbDocTipo: TDBLookupComboBox;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    DBLookupComboBox4: TDBLookupComboBox;
     DBMemo1: TDBMemo;
+    ds_Reparticiones: TDataSource;
+    ds_Bancos: TDataSource;
+    ds_AfiliadosEstados: TDataSource;
+    ds_empresaAfiliado: TDataSource;
     ds_DocumentosTipos: TDataSource;
     dbDocNro: TDBEdit;
     ds_Afiliado: TDataSource;
@@ -29,13 +41,23 @@ type
     GroupBox1: TGroupBox;
     GroupBox2: TGroupBox;
     Label1: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
     PCAfiliado: TPageControl;
     Panel1: TPanel;
     btnTUGTipoDocumento: TSpeedButton;
     SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
     tabEmpresa: TTabSheet;
     tabNotas: TTabSheet;
     procedure btnGrabarSalirClick(Sender: TObject);
@@ -46,6 +68,8 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
   private
     _idAfiliado: GUID_ID;
     _idEmpresa: GUID_ID;
@@ -79,6 +103,9 @@ begin
   Application.CreateForm(TDM_Afiliados, DM_Afiliados);
   DM_General.ReiniciarConsulta(DM_Afiliados.DocumentosTipos);
   DM_General.ReiniciarConsulta(DM_Afiliados.Localidades);
+  DM_General.ReiniciarConsulta(DM_Afiliados.Bancos);
+  DM_General.ReiniciarConsulta(DM_Afiliados.AfiliadosEstados);
+  DM_General.ReiniciarConsulta(DM_Afiliados.Reparticiones);
 
   _Nuevo:= False;
   _idAfiliado:= GUIDNULO;
@@ -175,6 +202,59 @@ begin
   end;
 end;
 
+procedure TfrmAfiliadoAE.SpeedButton2Click(Sender: TObject);
+var
+  pant: TfrmEdicionTugs;
+  laTabla: TTablaTUG;
+begin
+  pant:= TfrmEdicionTugs.Create(self);
+
+  laTabla:= TTablaTUG.Create;
+  laTabla.nombre:= 'Reparticiones';
+  laTabla.titulo:= 'Reparticiones';
+  laTabla.AgregarCampo('Reparticion', 'Nombre Reparticion');
+  laTabla.AgregarCampo('Codigo', 'Codigo Reparticion');
+
+
+  pant.laTUG:= laTabla;
+  try
+    if pant.ShowModal = mrOK then
+    begin
+       DM_General.ReiniciarConsulta(DM_Afiliados.Reparticiones);
+    end;
+  finally
+    laTabla.Free;
+    pant.Free;
+  end;
+end;
+
+procedure TfrmAfiliadoAE.SpeedButton3Click(Sender: TObject);
+var
+  pant: TfrmEdicionTugs;
+  laTabla: TTablaTUG;
+begin
+  pant:= TfrmEdicionTugs.Create(self);
+
+  laTabla:= TTablaTUG.Create;
+  laTabla.nombre:= 'Bancos';
+  laTabla.titulo:= 'Bancos';
+  laTabla.AgregarCampo('Banco', 'Nombre del Banco');
+
+  pant.laTUG:= laTabla;
+  try
+    if pant.ShowModal = mrOK then
+    begin
+       DM_General.ReiniciarConsulta(DM_Afiliados.Bancos);
+    end;
+  finally
+    laTabla.Free;
+    pant.Free;
+  end;
+end;
+
+
+
+
 procedure TfrmAfiliadoAE.ValidarAfiliadoDocumento;
 var
  pantInfo: TfrmAfiliadoInfoEmpresas;
@@ -195,8 +275,8 @@ begin
       pantInfo.idAfiliado:= elAfiliado;
       if (pantInfo.ShowModal = mrOK) then
       begin
-        if (NOT DM_Afiliados.ExisteAfiliadoEmpresa(idAfiliado, idEmpresa)) then
-          DM_Afiliados.CargarInfoAfiliadoPorEmpresa(idAfiliado,pantInfo.EmpresaSeleccionada ,idEmpresa )
+        if (NOT DM_Afiliados.ExisteAfiliadoEmpresa(elAfiliado, idEmpresa)) then
+          DM_Afiliados.CargarInfoAfiliadoPorEmpresa(elAfiliado,pantInfo.EmpresaSeleccionada ,idEmpresa )
         else
           ShowMessage ('El afiliado ya está cargado en esta empresa');
       end;

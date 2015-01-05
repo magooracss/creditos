@@ -15,6 +15,7 @@ type
   TDM_Afiliados = class(TDataModule)
     afiliadosEmpresaINS: TZQuery;
     AfiliadosEmpresasbVisible: TLongintField;
+    AfiliadosEmpresasCuotaSocial: TFloatField;
     afiliadosEmpresaSEL: TZQuery;
     afiliadoSELAPELLIDOS4: TStringField;
     afiliadoSELAPELLIDOS5: TStringField;
@@ -43,6 +44,7 @@ type
     afiliadosEmpresaSELAFILIADO_ID: TStringField;
     afiliadosEmpresaSELBANCO_ID: TLongintField;
     afiliadosEmpresaSELBVISIBLE: TSmallintField;
+    afiliadosEmpresaSELCUOTASOCIAL: TFloatField;
     afiliadosEmpresaSELEMPRESA_ID: TStringField;
     afiliadosEmpresaSELESTADO_ID: TSmallintField;
     afiliadosEmpresaSELFALTA: TDateField;
@@ -52,6 +54,9 @@ type
     afiliadosEmpresaSELLEGAJO: TStringField;
     afiliadosEmpresaSELNROAFILIADO: TLongintField;
     afiliadosEmpresaSELREPARTICION_ID: TLongintField;
+    AfiliadosEstadosBVISIBLE: TSmallintField;
+    AfiliadosEstadosESTADO: TStringField;
+    AfiliadosEstadosID: TLongintField;
     afiliadoUPD: TZQuery;
     AfiliadosApellidos: TStringField;
     AfiliadosbVisible: TLongintField;
@@ -115,6 +120,11 @@ type
     AfiliadosEmpresaslxEmpresa: TStringField;
     AfiliadosEmpresasnroAfiliado: TLongintField;
     AfiliadosEmpresasreparticion_id: TLongintField;
+    BancosBANCO: TStringField;
+    BancosBVISIBLE: TSmallintField;
+    BancosCODIGO: TStringField;
+    BancosID: TLongintField;
+    BancosPRESTACIONBAPRO: TSmallintField;
     BuscarAfiliadoDocAPELLIDOS: TStringField;
     BuscarAfiliadoDocBVISIBLE: TSmallintField;
     BuscarAfiliadoDocCUIT: TStringField;
@@ -133,10 +143,14 @@ type
     DocumentosTiposTIPO: TStringField;
     Afiliados: TRxMemoryData;
     AfiliadosEmpresas: TRxMemoryData;
+    Bancos: TZQuery;
+    Reparticiones: TZQuery;
+    AfiliadosEstados: TZQuery;
     LocalidadesBVISIBLE: TSmallintField;
     LocalidadesCODIGOPOSTAL: TStringField;
     LocalidadesID: TLongintField;
     LocalidadesLOCALIDAD: TStringField;
+    qEmpresaAfiliadoCUOTASOCIAL: TFloatField;
     qEmpresasAfiliado: TZQuery;
     afiliadoSEL: TZQuery;
     qEmpresaAfiliado: TZQuery;
@@ -146,6 +160,7 @@ type
     qEmpresasAfiliadoBANCO_ID1: TLongintField;
     qEmpresasAfiliadoBVISIBLE: TSmallintField;
     qEmpresasAfiliadoBVISIBLE1: TSmallintField;
+    qEmpresasAfiliadoCUOTASOCIAL: TFloatField;
     qEmpresasAfiliadoEMPRESA_ID: TStringField;
     qEmpresasAfiliadoEMPRESA_ID1: TStringField;
     qEmpresasAfiliadoESTADO_ID: TSmallintField;
@@ -168,6 +183,10 @@ type
     qEmpresasAfiliadoNROAFILIADO1: TLongintField;
     qEmpresasAfiliadoREPARTICION_ID: TLongintField;
     qEmpresasAfiliadoREPARTICION_ID1: TLongintField;
+    ReparticionesBVISIBLE: TSmallintField;
+    ReparticionesCODIGO: TStringField;
+    ReparticionesID: TLongintField;
+    ReparticionesREPARTICION: TStringField;
     procedure AfiliadosAfterInsert(DataSet: TDataSet);
     procedure AfiliadosEmpresasAfterInsert(DataSet: TDataSet);
   private
@@ -281,7 +300,8 @@ end;
 procedure TDM_Afiliados.CargarInfoAfiliadoPorEmpresa(idAfiliado,
   idEmpresaOrigen, idEmpresaDestino: GUID_ID);
 begin
-  LevantarAfiliado(idAfiliado);
+  Editar (idAfiliado);
+
   DM_General.ReiniciarTabla(AfiliadosEmpresas);
   With qEmpresaAfiliado do
   begin
@@ -295,10 +315,12 @@ begin
 
   //Edito los datos para generar un registro nuevo
   AfiliadosEmpresas.Edit;
+  AfiliadosEmpresasafiliado_id.AsString:= Afiliadosid.AsString;
   AfiliadosEmpresasid.AsString:= DM_General.CrearGUID;
   AfiliadosEmpresasempresa_id.asString:= idEmpresaDestino;
   AfiliadosEmpresasfAlta.AsDateTime:= DateOf(Now);
   AfiliadosEmpresas.Post;
+
 end;
 
 function TDM_Afiliados.Nuevo: GUID_ID;
@@ -306,6 +328,7 @@ var
   tmpID: GUID_ID;
 begin
   DM_General.ReiniciarTabla(Afiliados);
+  DM_General.ReiniciarTabla(AfiliadosEmpresas);
   tmpID:= DM_General.CrearGUID;
   Afiliados.Insert;
   Afiliadosid.AsString:= tmpID;
@@ -316,6 +339,7 @@ end;
 procedure TDM_Afiliados.Editar(id: GUID_ID);
 begin
   DM_General.ReiniciarTabla(Afiliados);
+  DM_General.ReiniciarTabla(AfiliadosEmpresas);
   _idAfiliadoActual:= id;
   with afiliadoSEL do
   begin

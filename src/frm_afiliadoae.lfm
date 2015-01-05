@@ -1,11 +1,11 @@
 object frmAfiliadoAE: TfrmAfiliadoAE
-  Left = 305
-  Height = 634
-  Top = 37
+  Left = 359
+  Height = 585
+  Top = 89
   Width = 740
   ActiveControl = dbDocTipo
   Caption = 'Afiliado'
-  ClientHeight = 634
+  ClientHeight = 585
   ClientWidth = 740
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -101,7 +101,7 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 584
+    Top = 535
     Width = 740
     Align = alBottom
     ClientHeight = 50
@@ -179,8 +179,8 @@ object frmAfiliadoAE: TfrmAfiliadoAE
   end
   object PCAfiliado: TPageControl
     Left = 0
-    Height = 272
-    Top = 312
+    Height = 235
+    Top = 300
     Width = 740
     ActivePage = tabEmpresa
     Align = alBottom
@@ -188,14 +188,285 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     TabOrder = 6
     object tabEmpresa: TTabSheet
       Caption = 'Empresa'
+      ClientHeight = 206
+      ClientWidth = 732
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 16
+        Height = 24
+        Top = 32
+        Width = 236
+        DataField = 'reparticion_id'
+        DataSource = ds_empresaAfiliado
+        KeyField = 'ID'
+        ListField = 'REPARTICION'
+        ListFieldIndex = 0
+        ListSource = ds_Reparticiones
+        LookupCache = False
+        TabOrder = 0
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 260
+        Height = 26
+        Top = 32
+        Width = 31
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+          72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+          65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+          75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+          C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+          7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+          EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+          7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+          F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+          82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+          F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+          87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+          FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+          8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+          EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+          8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+          BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+          94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+          ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+          98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+          A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+          9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+          9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+          89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+          A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+          F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+          A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+          8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = SpeedButton2Click
+      end
+      object Label5: TLabel
+        Left = 17
+        Height = 16
+        Top = 14
+        Width = 65
+        Caption = 'Repartición'
+        ParentColor = False
+      end
+      object DBEdit1: TDBEdit
+        Left = 336
+        Height = 24
+        Top = 32
+        Width = 152
+        DataField = 'Legajo'
+        DataSource = ds_empresaAfiliado
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 1
+      end
+      object DBEdit6: TDBEdit
+        Left = 536
+        Height = 24
+        Top = 32
+        Width = 152
+        DataField = 'nroAfiliado'
+        DataSource = ds_empresaAfiliado
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 2
+      end
+      object Label6: TLabel
+        Left = 336
+        Height = 16
+        Top = 14
+        Width = 38
+        Caption = 'Legajo'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 536
+        Height = 16
+        Top = 14
+        Width = 65
+        Caption = 'Nro Afiliado'
+        ParentColor = False
+      end
+      object Label8: TLabel
+        Left = 17
+        Height = 16
+        Top = 80
+        Width = 37
+        Caption = 'Banco'
+        ParentColor = False
+      end
+      object DBLookupComboBox3: TDBLookupComboBox
+        Left = 16
+        Height = 24
+        Top = 98
+        Width = 236
+        DataField = 'banco_id'
+        DataSource = ds_empresaAfiliado
+        KeyField = 'ID'
+        ListField = 'BANCO'
+        ListFieldIndex = 0
+        ListSource = ds_Bancos
+        LookupCache = False
+        TabOrder = 3
+      end
+      object SpeedButton3: TSpeedButton
+        Left = 260
+        Height = 26
+        Top = 98
+        Width = 31
+        Glyph.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00113D55F7285F87FB4988BDFB428DBCC12D77B322FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00D69E
+          72C4D3996EF4D19668FF2E6682FF94C7F9FF91C9F9FF4185C9FF2466A6FFA882
+          65FFC38452FFC38452FFC38452FFC38452FFBB7742B0FFFFFF00FFFFFF00D7A1
+          75FFF8F2EDFFF7F0EAFF4389AAFFE0F2FFFF549AD8FF1A7ABEFF4998C5FF478C
+          C3FFD0D2D7FFF0E2D8FFF0E2D8FFF0E2D8FFC58A5DFDFFFFFF00FFFFFF00D9A4
+          7AFFF9F3EEFFEBD2BEFFA7C5D9FF7AB6D5FF90B7D1FF55C9E4FF5BDFF5FF78D0
+          EDFF519DDDFFE4F0FAFFFFFFFFFFF0E2D8FFC68C5FFFFFFFFF00FFFFFF00DDA8
+          7EFFF9F3EFFFEBD0BAFFEBD0BBFFA7B7B9FF76B9D5FFC2F6FDFF63DFF7FF5DE2
+          F8FF79D3F0FF4997DAFFD4C5B9FFF0E2D8FFC68A5CFFFFFFFF00FFFFFF00DFAA
+          82FFF9F3EFFFEACEB7FFFFFFFFFFEBD0BBFFB1D6E7FF77CBE7FFC7F7FDFF5EDC
+          F5FF5AE1F7FF7BD4F1FF4C9ADEFFCAD0D8FFC88D5FFFFFFFFF00FFFFFF00E1AE
+          87FFFAF4F0FFEACBB2FFEACCB3FFEACCB3FFEACCB3FFB0C4BFFF79D3EEFFC7F7
+          FDFF5FDCF5FF5BE2F7FF7AD6F2FF50A0DEFFAC876BFFFFFFFF00FFFFFF00E3B1
+          8CFFFAF6F1FFEAC9AEFFFFFFFFFFEAC9B0FFFFFFFFFFFFFFFFFFC1EBF7FF7DD4
+          EDFFC4F6FDFF6CDDF6FF6DCAEDFF63A3D7FF6599C9FF5192CA26FFFFFF00E5B4
+          8FFFFAF6F2FFE9C6AAFFE9C6ACFFEAC7ACFFE9C7ADFFE9C9AEFFE9C9B0FFA6C1
+          BEFF81D5EDFFB2E3F9FF8BC0E7FFAED3F6FFC4E0FCFF669FD3F7FFFFFF00E7B7
+          94FFFBF7F4FFE9C3A6FFFFFFFFFFE8C4A9FFFFFFFFFFFFFFFFFFFFFFFFFFE8C7
+          ACFFB1E6F5FF77BEE7FFB4D2F0FFE5F3FFFFACD2EFFF488CC7E8FFFFFF00E9BA
+          98FFFBF7F4FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3A6FFE9C3
+          A6FFE9C3A6FFADBDB8FF58A5D8FF85B1DBFF469DD0FF2B95D15EFFFFFF00EBBD
+          9BFFFBF7F4FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFBF7F4FFD1976AFFFFFFFF00FFFFFF00ECBF
+          9EFFFBF7F4FF9CD5A5FF98D3A1FF94D09DFF90CE98FF8BCB93FF87C98EFF82C6
+          89FF7EC384FF7AC180FF76BE7CFFFBF7F4FFD49B6FFFFFFFFF00FFFFFF00EEC1
+          A1EBFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7
+          F4FFFBF7F4FFFBF7F4FFFBF7F4FFFBF7F4FFD7A074F8FFFFFF00FFFFFF00EFC2
+          A37EEFC1A2E3EDC09FFFEBBE9DFFEBBC9AFFE9BA96FFE7B793FFE6B590FFE4B2
+          8CFFE2AF88FFE0AC84FFDDA980FFDCA57DFFDAA37ACAFFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+          FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+        }
+        OnClick = SpeedButton3Click
+      end
+      object DBLookupComboBox4: TDBLookupComboBox
+        Left = 336
+        Height = 24
+        Top = 98
+        Width = 236
+        DataField = 'estado_id'
+        DataSource = ds_empresaAfiliado
+        KeyField = 'ID'
+        ListField = 'ESTADO'
+        ListFieldIndex = 0
+        ListSource = ds_AfiliadosEstados
+        LookupCache = False
+        TabOrder = 4
+      end
+      object Label9: TLabel
+        Left = 337
+        Height = 16
+        Top = 80
+        Width = 41
+        Caption = 'Estado'
+        ParentColor = False
+      end
+      object DBDateEdit1: TDBDateEdit
+        Left = 17
+        Height = 24
+        Top = 160
+        Width = 104
+        ButtonOnlyWhenFocused = True
+        ButtonWidth = 23
+        CalendarStyle = csDialog
+        CharCase = ecNormal
+        DefaultToday = True
+        DialogTitle = 'Seleccionar Fecha'
+        Enabled = False
+        MaxLength = 10
+        NumGlyphs = 2
+        PopupColor = clWindow
+        StartOfWeek = Sun
+        TabOrder = 5
+        Text = '  /  /    '
+        YearDigits = dyFour
+        DataField = 'fAlta'
+        DataSource = ds_empresaAfiliado
+      end
+      object DBDateEdit2: TDBDateEdit
+        Left = 240
+        Height = 24
+        Top = 160
+        Width = 104
+        ButtonOnlyWhenFocused = True
+        ButtonWidth = 23
+        CalendarStyle = csDialog
+        CharCase = ecNormal
+        DefaultToday = True
+        DialogTitle = 'Seleccionar Fecha'
+        Enabled = False
+        MaxLength = 10
+        NumGlyphs = 2
+        PopupColor = clWindow
+        StartOfWeek = Sun
+        TabOrder = 6
+        Text = '  /  /    '
+        YearDigits = dyFour
+        DataField = 'fBaja'
+        DataSource = ds_empresaAfiliado
+      end
+      object Label10: TLabel
+        Left = 17
+        Height = 16
+        Top = 144
+        Width = 23
+        Caption = 'Alta'
+        ParentColor = False
+      end
+      object Label11: TLabel
+        Left = 240
+        Height = 16
+        Top = 144
+        Width = 26
+        Caption = 'Baja'
+        ParentColor = False
+      end
+      object DBEdit7: TDBEdit
+        Left = 560
+        Height = 24
+        Top = 160
+        Width = 128
+        DataField = 'CuotaSocial'
+        DataSource = ds_empresaAfiliado
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 7
+      end
+      object Label12: TLabel
+        Left = 560
+        Height = 16
+        Top = 144
+        Width = 72
+        Caption = 'Cuota social'
+        ParentColor = False
+      end
     end
     object tabNotas: TTabSheet
       Caption = 'Notas'
-      ClientHeight = 235
+      ClientHeight = 243
       ClientWidth = 732
       object DBMemo1: TDBMemo
         Left = 0
-        Height = 235
+        Height = 243
         Top = 0
         Width = 732
         Align = alClient
@@ -343,5 +614,25 @@ object frmAfiliadoAE: TfrmAfiliadoAE
     DataSet = DM_Afiliados.Localidades
     left = 336
     top = 16
+  end
+  object ds_empresaAfiliado: TDataSource
+    DataSet = DM_Afiliados.AfiliadosEmpresas
+    left = 112
+    top = 88
+  end
+  object ds_Reparticiones: TDataSource
+    DataSet = DM_Afiliados.Reparticiones
+    left = 268
+    top = 88
+  end
+  object ds_Bancos: TDataSource
+    DataSet = DM_Afiliados.Bancos
+    left = 360
+    top = 88
+  end
+  object ds_AfiliadosEstados: TDataSource
+    DataSet = DM_Afiliados.AfiliadosEstados
+    left = 472
+    top = 88
   end
 end

@@ -458,6 +458,12 @@ object DM_Afiliados: TDM_Afiliados
         Size = 0
       end    
       item
+        Name = 'CuotaSocial'
+        DataType = ftFloat
+        Precision = 0
+        Size = 0
+      end    
+      item
         Name = 'bVisible'
         DataType = ftInteger
         Precision = 0
@@ -631,6 +637,20 @@ object DM_Afiliados: TDM_Afiliados
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object AfiliadosEmpresasCuotaSocial: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CuotaSocial'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Currency = True
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object qEmpresasAfiliado: TZQuery
@@ -808,6 +828,19 @@ object DM_Afiliados: TDM_Afiliados
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object qEmpresasAfiliadoCUOTASOCIAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUOTASOCIAL'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object afiliadoSEL: TZQuery
@@ -1151,6 +1184,19 @@ object DM_Afiliados: TDM_Afiliados
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object qEmpresaAfiliadoCUOTASOCIAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUOTASOCIAL'
+      Index = 14
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
     end
   end
   object Localidades: TZQuery
@@ -1833,14 +1879,27 @@ object DM_Afiliados: TDM_Afiliados
       ReadOnly = False
       Required = False
     end
+    object afiliadosEmpresaSELCUOTASOCIAL: TFloatField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CUOTASOCIAL'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      MaxValue = 0
+      MinValue = 0
+      Precision = 2
+    end
   end
   object afiliadosEmpresaINS: TZQuery
     Connection = DM_Conexion.cnxBase
     SQL.Strings = (
       'INSERT INTO AfiliadosEmpresas'
-      '(id, afiliado_id, empresa_id, reparticion_id, nroAfiliado, legajo, banco_id, estado_id, fAlta, fBaja, bVisible)'
+      '(id, afiliado_id, empresa_id, reparticion_id, nroAfiliado, legajo, banco_id, estado_id, fAlta, fBaja, bVisible, cuotaSocial)'
       'VALUES'
-      '(:id, :afiliado_id, :empresa_id, :reparticion_id, :nroAfiliado, :legajo, :banco_id, :estado_id, :fAlta, :fBaja, :bVisible)'
+      '(:id, :afiliado_id, :empresa_id, :reparticion_id, :nroAfiliado, :legajo, :banco_id, :estado_id, :fAlta, :fBaja, :bVisible, :cuotaSocial)'
     )
     Params = <    
       item
@@ -1896,6 +1955,11 @@ object DM_Afiliados: TDM_Afiliados
       item
         DataType = ftUnknown
         Name = 'bvisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuotaSocial'
         ParamType = ptUnknown
       end>
     left = 172
@@ -1954,6 +2018,11 @@ object DM_Afiliados: TDM_Afiliados
       item
         DataType = ftUnknown
         Name = 'bvisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuotaSocial'
         ParamType = ptUnknown
       end>
     object afiliadoSELLXTIPODOCUMENTO4: TStringField
@@ -2101,6 +2170,7 @@ object DM_Afiliados: TDM_Afiliados
       ', fAlta =:fAlta'
       ', fBaja =:fBaja'
       ', bVisible =:bVisible'
+      ',cuotaSocial = :cuotaSocial'
       'WHERE (id = :id)'
     )
     Params = <    
@@ -2152,6 +2222,11 @@ object DM_Afiliados: TDM_Afiliados
       item
         DataType = ftUnknown
         Name = 'bvisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuotaSocial'
         ParamType = ptUnknown
       end    
       item
@@ -2210,6 +2285,11 @@ object DM_Afiliados: TDM_Afiliados
       item
         DataType = ftUnknown
         Name = 'bvisible'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'cuotaSocial'
         ParamType = ptUnknown
       end    
       item
@@ -2345,6 +2425,166 @@ object DM_Afiliados: TDM_Afiliados
       ReadOnly = False
       Required = False
       Size = 600
+    end
+  end
+  object Bancos: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT * '
+      'FROM Bancos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 560
+    top = 184
+    object BancosID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object BancosBANCO: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'BANCO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object BancosCODIGO: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object BancosPRESTACIONBAPRO: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'PRESTACIONBAPRO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object BancosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object Reparticiones: TZQuery
+    Connection = DM_Conexion.cnxBase
+    Active = True
+    SQL.Strings = (
+      'SELECT * '
+      'FROM Reparticiones'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 560
+    top = 256
+    object ReparticionesID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ReparticionesREPARTICION: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'REPARTICION'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object ReparticionesCODIGO: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'CODIGO'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+    object ReparticionesBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object AfiliadosEstados: TZQuery
+    Connection = DM_Conexion.cnxBase
+    Active = True
+    SQL.Strings = (
+      'SELECT * '
+      'FROM AfiliadosEstados'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 560
+    top = 328
+    object AfiliadosEstadosID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object AfiliadosEstadosESTADO: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'ESTADO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object AfiliadosEstadosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
     end
   end
 end
