@@ -83,6 +83,9 @@ uses
 
 { TfrmMain }
 
+{ TODO 1 -oMAGOO -cAfiliados : Hacer la búsqueda y edición de afiliados de la empresa
+ }
+
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
   Inicializar;

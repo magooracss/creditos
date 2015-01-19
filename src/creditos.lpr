@@ -12,7 +12,7 @@ uses
   ,sysutils, dmseguridad, frm_login, controls, frm_usuarioslistado, 
 frm_usuarioae, frm_empresaslistado, dmempresas, frm_empresaae,
 frm_empresasseleccion, dmediciontugs, frm_ediciontugs, frm_afiliadoae,
-dmafiliados, frm_afiliadoinfoempresas
+dmafiliados, frm_afiliadoinfoempresas, frm_contactosae
   ;
 
 {$R *.res}

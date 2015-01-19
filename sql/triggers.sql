@@ -57,4 +57,16 @@ BEGIN
    New.id = GEN_ID(afiliadoEstadoID,1);
 END^
 
-SET TERM ; ^  
+SET TERM ; ^ 
+
+SET TERM ^ ;
+
+CREATE TRIGGER ContactoID FOR Contactos
+BEFORE INSERT POSITION 0
+AS 
+BEGIN 
+    If (New.id = -1) then
+   New.id = GEN_ID(ContactoID,1);
+END^
+
+SET TERM ; ^ 

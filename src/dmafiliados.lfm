@@ -2492,7 +2492,6 @@ object DM_Afiliados: TDM_Afiliados
   end
   object Reparticiones: TZQuery
     Connection = DM_Conexion.cnxBase
-    Active = True
     SQL.Strings = (
       'SELECT * '
       'FROM Reparticiones'
@@ -2546,7 +2545,6 @@ object DM_Afiliados: TDM_Afiliados
   end
   object AfiliadosEstados: TZQuery
     Connection = DM_Conexion.cnxBase
-    Active = True
     SQL.Strings = (
       'SELECT * '
       'FROM AfiliadosEstados'
@@ -2585,6 +2583,711 @@ object DM_Afiliados: TDM_Afiliados
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+  end
+  object AfiliadosContacto: TRxMemoryData
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'contacto_id'
+        DataType = ftInteger
+        Precision = -1
+        Size = 0
+      end    
+      item
+        Name = 'afiliado_id'
+        DataType = ftString
+        Precision = -1
+        Size = 38
+      end    
+      item
+        Name = 'lxContacto'
+        DataType = ftString
+        Precision = -1
+        Size = 50
+      end    
+      item
+        Name = 'infoContacto'
+        DataType = ftString
+        Precision = 0
+        Size = 100
+      end>
+    AfterInsert = AfiliadosContactoAfterInsert
+    PacketRecords = 0
+    left = 288
+    top = 32
+    object AfiliadosContactoid: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object AfiliadosContactocontacto_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'contacto_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object AfiliadosContactoafiliado_id: TStringField
+      DisplayWidth = 38
+      FieldKind = fkData
+      FieldName = 'afiliado_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 38
+    end
+    object AfiliadosContactoinfoContacto: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'infoContacto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object AfiliadosContactolxContacto: TStringField
+      DisplayWidth = 50
+      FieldKind = fkData
+      FieldName = 'lxContacto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object Contactos: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT * '
+      'FROM Contactos'
+      'WHERE bVisible = 1'
+    )
+    Params = <>
+    left = 560
+    top = 392
+    object ContactosID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ContactosCONTACTO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'CONTACTO'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object ContactosBVISIBLE: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object afiliadosContactoSEL: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT *'
+      'FROM AfiliadosContactos '
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 288
+    top = 96
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object afiliadosContactoSELID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object afiliadosContactoSELAFILIADO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'AFILIADO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object afiliadosContactoSELCONTACTO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONTACTO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadosContactoSELINFOCONTACTO: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'INFOCONTACTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+  object qContactosAfiliado: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'SELECT AC.*, C.contacto as lxContacto'
+      'FROM AfiliadosContactos AC'
+      '            LEFT JOIN Contactos C ON AC.contacto_id = C.id'
+      'WHERE (AC.afiliado_id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 304
+    top = 368
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object qContactosAfiliadoID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object qContactosAfiliadoAFILIADO_ID: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'AFILIADO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object qContactosAfiliadoCONTACTO_ID: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONTACTO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qContactosAfiliadoLXCONTACTO: TStringField
+      DisplayWidth = 200
+      FieldKind = fkData
+      FieldName = 'LXCONTACTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 200
+    end
+    object qContactosAfiliadoINFOCONTACTO: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'INFOCONTACTO'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
+    end
+  end
+  object afiliadosContactoINS: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'INSERT INTO AfiliadosContactos'
+      '(id, afiliado_id, contacto_id, infoContacto)'
+      'VALUES'
+      '(:id, :afiliado_id, :contacto_id, :infoContacto)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'afiliado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'contacto_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'infoContacto'
+        ParamType = ptUnknown
+      end>
+    left = 288
+    top = 160
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'afiliado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'contacto_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'infoContacto'
+        ParamType = ptUnknown
+      end>
+    object afiliadoSELLXTIPODOCUMENTO6: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'LXTIPODOCUMENTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object afiliadoSELID6: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object afiliadoSELAPELLIDOS6: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object afiliadoSELNOMBRES6: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object afiliadoSELDOCUMENTOTIPO_ID6: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DOCUMENTOTIPO_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELDOCUMENTO6: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object afiliadoSELCUIT6: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object afiliadoSELDOMICILIO6: TStringField
+      DisplayWidth = 1200
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object afiliadoSELLOCALIDAD_ID6: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD_ID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELNOTAS6: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTAS'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object afiliadoSELBVISIBLE6: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELLXLOCALIDAD6: TStringField
+      DisplayWidth = 600
+      FieldKind = fkData
+      FieldName = 'LXLOCALIDAD'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 600
+    end
+  end
+  object afiliadosContactoUPD: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'UPDATE afiliadosContactos'
+      'SET '
+      '   afiliado_id = :afiliado_id'
+      ', contacto_id = :contacto_id'
+      ', infoContacto = :infoContacto'
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'afiliado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'contacto_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'infoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 288
+    top = 224
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'afiliado_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'contacto_id'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'infoContacto'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object afiliadoSELLXTIPODOCUMENTO7: TStringField
+      DisplayWidth = 100
+      FieldKind = fkData
+      FieldName = 'LXTIPODOCUMENTO'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object afiliadoSELID7: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object afiliadoSELAPELLIDOS7: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'APELLIDOS'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object afiliadoSELNOMBRES7: TStringField
+      DisplayWidth = 1000
+      FieldKind = fkData
+      FieldName = 'NOMBRES'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1000
+    end
+    object afiliadoSELDOCUMENTOTIPO_ID7: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'DOCUMENTOTIPO_ID'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELDOCUMENTO7: TStringField
+      DisplayWidth = 120
+      FieldKind = fkData
+      FieldName = 'DOCUMENTO'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 120
+    end
+    object afiliadoSELCUIT7: TStringField
+      DisplayWidth = 60
+      FieldKind = fkData
+      FieldName = 'CUIT'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object afiliadoSELDOMICILIO7: TStringField
+      DisplayWidth = 1200
+      FieldKind = fkData
+      FieldName = 'DOMICILIO'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 1200
+    end
+    object afiliadoSELLOCALIDAD_ID7: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'LOCALIDAD_ID'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELNOTAS7: TBlobField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'NOTAS'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      BlobType = ftBlob
+    end
+    object afiliadoSELBVISIBLE7: TSmallintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'BVISIBLE'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadoSELLXLOCALIDAD7: TStringField
+      DisplayWidth = 600
+      FieldKind = fkData
+      FieldName = 'LXLOCALIDAD'
+      Index = 11
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 600
+    end
+  end
+  object afiliadosContactosDEL: TZQuery
+    Connection = DM_Conexion.cnxBase
+    SQL.Strings = (
+      'DELETE FROM AfiliadosContactos '
+      'WHERE (id = :id)'
+    )
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    left = 296
+    top = 296
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object afiliadosContactoSELID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'ID'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 152
+    end
+    object afiliadosContactoSELAFILIADO_ID1: TStringField
+      DisplayWidth = 152
+      FieldKind = fkData
+      FieldName = 'AFILIADO_ID'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 152
+    end
+    object afiliadosContactoSELCONTACTO_ID1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'CONTACTO_ID'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object afiliadosContactoSELINFOCONTACTO1: TStringField
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'INFOCONTACTO'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 400
     end
   end
 end

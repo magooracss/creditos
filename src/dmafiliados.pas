@@ -13,6 +13,47 @@ type
   { TDM_Afiliados }
 
   TDM_Afiliados = class(TDataModule)
+    AfiliadosContactoafiliado_id: TStringField;
+    AfiliadosContactocontacto_id: TLongintField;
+    AfiliadosContactoid: TStringField;
+    AfiliadosContactoinfoContacto: TStringField;
+    AfiliadosContactolxContacto: TStringField;
+    afiliadosContactosDEL: TZQuery;
+    afiliadosContactoSELAFILIADO_ID: TStringField;
+    afiliadosContactoSELAFILIADO_ID1: TStringField;
+    afiliadosContactoSELCONTACTO_ID: TLongintField;
+    afiliadosContactoSELCONTACTO_ID1: TLongintField;
+    afiliadosContactoSELID: TStringField;
+    afiliadosContactoSELID1: TStringField;
+    afiliadosContactoSELINFOCONTACTO: TStringField;
+    afiliadosContactoSELINFOCONTACTO1: TStringField;
+    afiliadoSELAPELLIDOS6: TStringField;
+    afiliadoSELAPELLIDOS7: TStringField;
+    afiliadoSELBVISIBLE6: TSmallintField;
+    afiliadoSELBVISIBLE7: TSmallintField;
+    afiliadoSELCUIT6: TStringField;
+    afiliadoSELCUIT7: TStringField;
+    afiliadoSELDOCUMENTO6: TStringField;
+    afiliadoSELDOCUMENTO7: TStringField;
+    afiliadoSELDOCUMENTOTIPO_ID6: TLongintField;
+    afiliadoSELDOCUMENTOTIPO_ID7: TLongintField;
+    afiliadoSELDOMICILIO6: TStringField;
+    afiliadoSELDOMICILIO7: TStringField;
+    afiliadoSELID6: TStringField;
+    afiliadoSELID7: TStringField;
+    afiliadoSELLOCALIDAD_ID6: TLongintField;
+    afiliadoSELLOCALIDAD_ID7: TLongintField;
+    afiliadoSELLXLOCALIDAD6: TStringField;
+    afiliadoSELLXLOCALIDAD7: TStringField;
+    afiliadoSELLXTIPODOCUMENTO6: TStringField;
+    afiliadoSELLXTIPODOCUMENTO7: TStringField;
+    afiliadoSELNOMBRES6: TStringField;
+    afiliadoSELNOMBRES7: TStringField;
+    afiliadoSELNOTAS6: TBlobField;
+    afiliadoSELNOTAS7: TBlobField;
+    afiliadosContactoINS: TZQuery;
+    afiliadosContactoUPD: TZQuery;
+    qContactosAfiliado: TZQuery;
     afiliadosEmpresaINS: TZQuery;
     AfiliadosEmpresasbVisible: TLongintField;
     AfiliadosEmpresasCuotaSocial: TFloatField;
@@ -41,6 +82,7 @@ type
     afiliadoSELNOMBRES5: TStringField;
     afiliadoSELNOTAS4: TBlobField;
     afiliadoSELNOTAS5: TBlobField;
+    afiliadosContactoSEL: TZQuery;
     afiliadosEmpresaSELAFILIADO_ID: TStringField;
     afiliadosEmpresaSELBANCO_ID: TLongintField;
     afiliadosEmpresaSELBVISIBLE: TSmallintField;
@@ -54,6 +96,7 @@ type
     afiliadosEmpresaSELLEGAJO: TStringField;
     afiliadosEmpresaSELNROAFILIADO: TLongintField;
     afiliadosEmpresaSELREPARTICION_ID: TLongintField;
+    Contactos: TZQuery;
     AfiliadosEstadosBVISIBLE: TSmallintField;
     AfiliadosEstadosESTADO: TStringField;
     AfiliadosEstadosID: TLongintField;
@@ -135,6 +178,9 @@ type
     BuscarAfiliadoDocLOCALIDAD_ID: TLongintField;
     BuscarAfiliadoDocNOMBRES: TStringField;
     BuscarAfiliadoDocNOTAS: TBlobField;
+    ContactosBVISIBLE: TSmallintField;
+    ContactosCONTACTO: TStringField;
+    ContactosID: TLongintField;
     DocumentosTipos: TZQuery;
     BuscarAfiliadoDoc: TZQuery;
     Localidades: TZQuery;
@@ -144,6 +190,11 @@ type
     Afiliados: TRxMemoryData;
     AfiliadosEmpresas: TRxMemoryData;
     Bancos: TZQuery;
+    qContactosAfiliadoAFILIADO_ID: TStringField;
+    qContactosAfiliadoCONTACTO_ID: TLongintField;
+    qContactosAfiliadoID: TStringField;
+    qContactosAfiliadoINFOCONTACTO: TStringField;
+    qContactosAfiliadoLXCONTACTO: TStringField;
     Reparticiones: TZQuery;
     AfiliadosEstados: TZQuery;
     LocalidadesBVISIBLE: TSmallintField;
@@ -187,7 +238,9 @@ type
     ReparticionesCODIGO: TStringField;
     ReparticionesID: TLongintField;
     ReparticionesREPARTICION: TStringField;
+    AfiliadosContacto: TRxMemoryData;
     procedure AfiliadosAfterInsert(DataSet: TDataSet);
+    procedure AfiliadosContactoAfterInsert(DataSet: TDataSet);
     procedure AfiliadosEmpresasAfterInsert(DataSet: TDataSet);
   private
      _idAfiliadoActual: GUID_ID;
@@ -201,9 +254,12 @@ type
     procedure LevantarAfiliado (id: GUID_ID);
 
     procedure LevantarEmpresasAfiliado (idAfiliado: GUID_ID);
+    procedure LevantarContactosAfiliado(idAfiliado: GUID_ID);
     function ExisteAfiliadoEmpresa (idAfiliado, idEmpresa: GUID_ID): Boolean;
     procedure CargarInfoAfiliadoPorEmpresa(idAfiliado , idEmpresaOrigen
             , idEmpresaDestino: GUID_ID);
+    procedure BorrarContactoActual;
+
 
     function Nuevo: GUID_ID;
     procedure Editar (id: GUID_ID);
@@ -251,6 +307,7 @@ begin
     close;
   end;
   LevantarEmpresasAfiliado (id);
+  LevantarContactosAfiliado(id);
 end;
 
 procedure TDM_Afiliados.LevantarEmpresasAfiliado(idAfiliado: GUID_ID);
@@ -266,12 +323,34 @@ begin
   end;
 end;
 
+procedure TDM_Afiliados.LevantarContactosAfiliado(idAfiliado: GUID_ID);
+begin
+  Contactos.Open;
+  DM_General.ReiniciarTabla(AfiliadosContacto);
+  with qContactosAfiliado do
+  begin
+    if active then close;
+    ParamByName('id').AsString:= idAfiliado ;
+    Open;
+    AfiliadosContacto.LoadFromDataSet(qContactosAfiliado, 0, lmAppend);
+    Close;
+  end;
+end;
+
 procedure TDM_Afiliados.AfiliadosAfterInsert(DataSet: TDataSet);
 begin
   Afiliadosid.AsString:= DM_General.CrearGUID;
   AfiliadosdocumentoTipo_id.asInteger:= 0;
   AfiliadosLocalidad_id.AsInteger:=0;
   AfiliadosbVisible.AsInteger:= 1;
+end;
+
+procedure TDM_Afiliados.AfiliadosContactoAfterInsert(DataSet: TDataSet);
+begin
+  AfiliadosContactoid.asString:= DM_General.CrearGUID;
+  AfiliadosContactoafiliado_id.asString:= _idAfiliadoActual;
+  AfiliadosContactoinfoContacto.asString:= EmptyStr;
+  AfiliadosContactocontacto_id.asInteger:= 0;
 end;
 
 procedure TDM_Afiliados.AfiliadosEmpresasAfterInsert(DataSet: TDataSet);
@@ -301,7 +380,6 @@ procedure TDM_Afiliados.CargarInfoAfiliadoPorEmpresa(idAfiliado,
   idEmpresaOrigen, idEmpresaDestino: GUID_ID);
 begin
   Editar (idAfiliado);
-
   DM_General.ReiniciarTabla(AfiliadosEmpresas);
   With qEmpresaAfiliado do
   begin
@@ -320,7 +398,14 @@ begin
   AfiliadosEmpresasempresa_id.asString:= idEmpresaDestino;
   AfiliadosEmpresasfAlta.AsDateTime:= DateOf(Now);
   AfiliadosEmpresas.Post;
+end;
 
+procedure TDM_Afiliados.BorrarContactoActual;
+begin
+  afiliadosContactosDEL.ParamByName('id').asString:= AfiliadosContactoid.AsString;
+  afiliadosContactosDEL.ExecSQL;
+
+  AfiliadosContacto.Delete;
 end;
 
 function TDM_Afiliados.Nuevo: GUID_ID;
@@ -329,6 +414,7 @@ var
 begin
   DM_General.ReiniciarTabla(Afiliados);
   DM_General.ReiniciarTabla(AfiliadosEmpresas);
+  DM_General.ReiniciarTabla(AfiliadosContacto);
   tmpID:= DM_General.CrearGUID;
   Afiliados.Insert;
   Afiliadosid.AsString:= tmpID;
@@ -340,6 +426,7 @@ procedure TDM_Afiliados.Editar(id: GUID_ID);
 begin
   DM_General.ReiniciarTabla(Afiliados);
   DM_General.ReiniciarTabla(AfiliadosEmpresas);
+  DM_General.ReiniciarTabla(AfiliadosContacto);
   _idAfiliadoActual:= id;
   with afiliadoSEL do
   begin
@@ -351,12 +438,15 @@ begin
   end;
 
   LevantarEmpresasAfiliado(id);
+  LevantarContactosAfiliado(id);
+
 end;
 
 procedure TDM_Afiliados.Grabar;
 begin
   DM_General.GrabarDatos(afiliadoSEL, afiliadoINS, afiliadoUPD, AFiliados, 'id' );
   DM_General.GrabarDatos(afiliadosEmpresaSEL, afiliadosEmpresaINS, afiliadosEmpresaUPD, AfiliadosEmpresas, 'id' );
+  DM_General.GrabarDatos(afiliadosContactoSEL, afiliadosContactoINS, afiliadosContactoUPD, AfiliadosContacto, 'id' );
 end;
 
 

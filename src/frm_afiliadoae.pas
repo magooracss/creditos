@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, db, FileUtil, dbdateedit, Forms, Controls, Graphics,
-  Dialogs, DbCtrls, StdCtrls, Buttons, ExtCtrls, ComCtrls, dmgeneral
+  Dialogs, DbCtrls, StdCtrls, Buttons, ExtCtrls, ComCtrls, DBGrids, dmgeneral
   ;
 
 type
@@ -14,11 +14,16 @@ type
   { TfrmAfiliadoAE }
 
   TfrmAfiliadoAE = class(TForm)
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
     btnGrabarSalir: TBitBtn;
+    DBGrid1: TDBGrid;
+    ds_AfiliadoContacto: TDataSource;
     DBDateEdit1: TDBDateEdit;
     DBDateEdit2: TDBDateEdit;
     DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
+    dbApellidos: TDBEdit;
     DBEdit3: TDBEdit;
     DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
@@ -52,6 +57,7 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
+    Panel2: TPanel;
     PCAfiliado: TPageControl;
     Panel1: TPanel;
     btnTUGTipoDocumento: TSpeedButton;
@@ -60,8 +66,13 @@ type
     SpeedButton3: TSpeedButton;
     tabEmpresa: TTabSheet;
     tabNotas: TTabSheet;
+    TabSheet1: TTabSheet;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
     procedure btnGrabarSalirClick(Sender: TObject);
     procedure btnTUGTipoDocumentoClick(Sender: TObject);
+    procedure dbDocNroChange(Sender: TObject);
     procedure dbDocNroExit(Sender: TObject);
     procedure dbDocNroKeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
@@ -73,9 +84,11 @@ type
   private
     _idAfiliado: GUID_ID;
     _idEmpresa: GUID_ID;
+    sinValidar: boolean;
     _Nuevo: Boolean; //Bandera para saber si estoy editando o insertando;
 
     procedure ValidarAfiliadoDocumento;
+    procedure pantContacto (id: GUID_ID);
   public
     property idAfiliado: GUID_ID read _idAfiliado write _idAfiliado;
     property idEmpresa: GUID_ID read _idEmpresa write _idEmpresa;
@@ -84,8 +97,6 @@ type
 var
   frmAfiliadoAE: TfrmAfiliadoAE;
 
-{ TODO 1 -oMagoo -cAfiliados : No vincula el afiliado con la Empresa actual }
-{ TODO 1 -oMagoo -cAfiliado : Si el afiliado existe, despliega la pantalla, pero no trae datos de las empresas }
 
 implementation
 {$R *.lfm}
@@ -94,10 +105,10 @@ uses
   ,frm_ediciontugs
   ,dmediciontugs
   ,frm_afiliadoinfoempresas
+  ,frm_contactosae
   ;
 
 { TfrmAfiliadoAE }
-{ TODO 2 -oMagoo -cAfiliado : Agregar información de contacto (Tel, mail, etc) }
 procedure TfrmAfiliadoAE.FormCreate(Sender: TObject);
 begin
   Application.CreateForm(TDM_Afiliados, DM_Afiliados);
@@ -110,6 +121,9 @@ begin
   _Nuevo:= False;
   _idAfiliado:= GUIDNULO;
   _idEmpresa:= GUIDNULO;
+  sinValidar:= True;
+
+  PCAfiliado.ActivePage:= tabEmpresa;
 end;
 
 procedure TfrmAfiliadoAE.btnGrabarSalirClick(Sender: TObject);
@@ -142,14 +156,20 @@ begin
   end;
 end;
 
+procedure TfrmAfiliadoAE.dbDocNroChange(Sender: TObject);
+begin
+  sinValidar:= True;
+end;
+
 procedure TfrmAfiliadoAE.dbDocNroExit(Sender: TObject);
 begin
-  ValidarAfiliadoDocumento;
+  if (sinValidar) then
+    ValidarAfiliadoDocumento;
 end;
 
 procedure TfrmAfiliadoAE.dbDocNroKeyPress(Sender: TObject; var Key: char);
 begin
-  if key = #13 then
+  if (key = #13) and (sinValidar) then
     ValidarAfiliadoDocumento;
 end;
 
@@ -273,11 +293,21 @@ begin
     if (elAfiliado <> GUIDNULO) then
     begin
       pantInfo.idAfiliado:= elAfiliado;
+
+      //Esto es para que no se me abra dos veces la pantalla de empresas
+      sinValidar:= False;
+      dbApellidos.SetFocus;
+
       if (pantInfo.ShowModal = mrOK) then
       begin
         if (NOT DM_Afiliados.ExisteAfiliadoEmpresa(elAfiliado, idEmpresa)) then
-          DM_Afiliados.CargarInfoAfiliadoPorEmpresa(elAfiliado,pantInfo.EmpresaSeleccionada ,idEmpresa )
+        begin
+          DM_Afiliados.CargarInfoAfiliadoPorEmpresa(elAfiliado,pantInfo.EmpresaSeleccionada ,idEmpresa );
+        end
         else
+     //Tambien se puede editar el afiliado por este camino, por eso actualizo las ID al que viene de la base
+          DM_Afiliados.idAfiliadoActual:= elAfiliado;
+          _idAfiliado:= elAfiliado;
           ShowMessage ('El afiliado ya está cargado en esta empresa');
       end;
 
@@ -285,6 +315,39 @@ begin
   finally
     pantInfo.Free;
   end;
+end;
+
+procedure TfrmAfiliadoAE.pantContacto(id: GUID_ID);
+var
+  pant: TfrmContactoAE;
+begin
+  pant:= TfrmContactoAE.Create(self);
+  try
+    pant.id:= id;
+    pant.ShowModal;
+  finally
+    pant.free;
+  end;
+end;
+
+
+
+procedure TfrmAfiliadoAE.BitBtn1Click(Sender: TObject);
+begin
+  pantContacto(GUIDNULO);
+//  DM_Afiliados.LevantarContactosAfiliado(_idAfiliado);
+end;
+
+procedure TfrmAfiliadoAE.BitBtn2Click(Sender: TObject);
+begin
+  pantContacto(DM_Afiliados.AfiliadosContactoid.asString);
+end;
+
+procedure TfrmAfiliadoAE.BitBtn3Click(Sender: TObject);
+begin
+  if (MessageDlg ('ATENCION', 'Borro el contacto seleccionado?', mtConfirmation, [mbYes, mbNo],0 ) = mrYes) then
+   DM_Afiliados.BorrarContactoActual;
+
 end;
 
 end.

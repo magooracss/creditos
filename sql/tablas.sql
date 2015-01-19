@@ -102,3 +102,19 @@ CREATE TABLE Bancos
    , PrestacionBapro smallint default 0
    , bVisible smallint default 1
 );
+
+CREATE TABLE Contactos
+(
+	id integer NOT NULL PRIMARY KEY 
+	, Contacto	varchar(50)
+	, bVisible smallint default 1
+);
+
+CREATE TABLE AfiliadosContactos
+(
+	id   		    "guid"  NOT NULL PRIMARY KEY
+	, afiliado_id    "guid"  DEFAULT '{00000000-0000-0000-0000-000000000000}'
+	, contacto_id	integer default 0
+	, infoContacto	varchar (100)
+
+);

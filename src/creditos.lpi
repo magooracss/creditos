@@ -19,7 +19,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <BuildNr Value="21"/>
+      <BuildNr Value="27"/>
       <Language Value="080A"/>
       <StringTable CompanyName="RACSS Programación" LegalCopyright="RACSS Programación de Carlos Enrique Rodriguez" ProductVersion=""/>
     </VersionInfo>
@@ -51,7 +51,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="19">
+    <Units Count="20">
       <Unit0>
         <Filename Value="creditos.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -194,6 +194,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frm_afiliadoinfoempresas"/>
       </Unit18>
+      <Unit19>
+        <Filename Value="frm_contactosae.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmContactoAE"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frm_contactosae"/>
+      </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
